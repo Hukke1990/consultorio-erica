@@ -3,7 +3,7 @@ import { useState } from 'react'
 //importando los modulos de firebase
 import appFirebase from '../src/credenciales'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-const auth = getAuth[appFirebase]
+const auth = getAuth(appFirebase)
 
 //importar nuestros componentes
 import { Login } from './components/Login'
@@ -15,7 +15,7 @@ function App() {
 
   const [usuario, setUsuario] = useState(null)
 
-  onAuthStateChanged(auth, (usuarioFirebase)=>{
+  onAuthStateChanged(auth, (usuarioFirebase) => {
     if (usuarioFirebase) {
       setUsuario(usuarioFirebase)
     }
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div>
-      {usuario ? <Home correoUsuario = {usuario.email}/> : <Login/>}
+      {usuario ? <Home correoUsuario={usuario.email} /> : <Login />}
     </div>
   )
 }
