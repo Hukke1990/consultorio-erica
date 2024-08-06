@@ -1,34 +1,32 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-//importando los modulos de firebase
-import appFirebase from '../src/credenciales'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
-const auth = getAuth(appFirebase)
+// Importando los modulos de firebase
+import appFirebase from '../src/credenciales';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+const auth = getAuth(appFirebase);
 
-//importar nuestros componentes
-import { Login } from './components/Login'
-import { Home } from './components/Home'
+// Importar nuestros componentes
+import { Login } from './pages/login/Login';
+import { Home } from './pages/home/Home';
 
-import './App.css'
+import './App.css';
 
 function App() {
-
-  const [usuario, setUsuario] = useState(null)
+  const [usuario, setUsuario] = useState(null);
 
   onAuthStateChanged(auth, (usuarioFirebase) => {
     if (usuarioFirebase) {
-      setUsuario(usuarioFirebase)
+      setUsuario(usuarioFirebase);
+    } else {
+      setUsuario(null);
     }
-    else {
-      setUsuario(null)
-    }
-  })
+  });
 
   return (
     <div>
       {usuario ? <Home correoUsuario={usuario.email} /> : <Login />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
