@@ -1,27 +1,21 @@
 /* Estilos generales para el contenedor de navegación */
 .contenedor-nav {
-    background-color: #004080;
-    /* Color de fondo */
+    background: linear-gradient(180deg, #223b51 0%, #2d4a75 100%);
     padding: 1rem;
-    /* Espaciado interno */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra para dar profundidad */
+
 }
 
 /* Estilos para la navegación */
 .nav {
     display: flex;
     justify-content: center;
-    /* Centrar el contenido horizontalmente */
 }
 
 /* Estilos para la lista de navegación */
 .nav ul {
     list-style: none;
-    /* Quitar los puntos de la lista */
     display: flex;
     gap: 1rem;
-    /* Espacio entre los elementos de la lista */
     padding: 0;
     margin: 0;
 }
@@ -29,80 +23,28 @@
 /* Estilos para los elementos de la lista */
 .nav li {
     display: inline;
-    /* Mostrar los elementos en línea */
     position: relative;
-    /* Necesario para el dropdown */
 }
 
 /* Estilos para los enlaces de navegación */
 .nav a,
 .nav span {
     text-decoration: none;
-    /* Quitar el subrayado de los enlaces */
     color: #fff;
-    /* Color del texto */
     font-weight: bold;
-    /* Texto en negrita */
     padding: 0.5rem 1rem;
-    /* Espaciado interno */
-    border-radius: 4px;
-    /* Bordes redondeados */
-    transition: background-color 0.3s ease;
-    /* Transición suave para el cambio de fondo */
     cursor: pointer;
-    /* Cursor de mano para span */
 }
 
 /* Estilos para los enlaces activos */
 .nav a.active {
-    background-color: #0073e6;
-    /* Fondo para el enlace activo */
+    border-bottom: #98721d solid 2px;
 }
 
 /* Estilos para los enlaces en estado hover */
-.nav a:hover,
-.nav span:hover {
-    background-color: #005bb5;
-    /* Fondo para el estado hover */
-}
-
-/* Estilos para el menú desplegable */
-.dropdown-menu {
-    display: flex;
-    flex-direction: column;
-    /* Mostrar los elementos en columna */
-    position: absolute;
-    top: 100%;
-    /* Posicionar debajo del elemento padre */
-    left: 0;
-    background-color: #004080;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra para dar profundidad */
-    border-radius: 4px;
-    z-index: 1000;
-}
-
-/* Estilos para los elementos del menú desplegable */
-.dropdown-menu li {
-    display: flex;
-    flex-direction: column;
-    /* Mostrar como bloque */
-}
-
-.dropdown-menu a {
-    padding: 0.5rem 1rem;
-    /* Espaciado interno */
-    color: #fff;
-    /* Color del texto */
-    text-decoration: none;
-    /* Quitar el subrayado de los enlaces */
-    transition: background-color 0.3s ease;
-    /* Transición suave para el cambio de fondo */
-}
-
-.dropdown-menu a:hover {
-    background-color: #005bb5;
-    /* Fondo para el estado hover */
+.nav a:hover {
+    transition: 0.5s ease-in-out;
+    border-bottom: #98721d solid 2px;
 }
 
 .btnSignOut {

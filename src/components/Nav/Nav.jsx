@@ -22,20 +22,7 @@ export const Nav = () => {
             <div className='nav'>
                 <ul>
                     <li><NavLink exact to='/'>Inicio</NavLink></li>
-                    <li
-                        className='dropdown'
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <span>Pacientes</span>
-                        {dropdownOpen && (
-                            <ul className='dropdown-menu'>
-                                <li><NavLink to='/Pacientes/Registro'>Registro</NavLink></li>
-                                <li><NavLink to='/Pacientes/Historial'>Historial</NavLink></li>
-                                <li><NavLink to='/Pacientes/Citas'>Citas</NavLink></li>
-                            </ul>
-                        )}
-                    </li>
+                    <li><NavLink to='/Pacientes/Registro'>Pacientes</NavLink></li>
                     <li>
                         <button className='btnSignOut' onClick={() => signOut(auth)}>
                             <NavLink to='/Login'>Cerrar Sesión</NavLink>

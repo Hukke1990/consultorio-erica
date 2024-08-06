@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import imagenAvatar from '../../../src/assets/logo-medicina.png'
-
+import './login.css'
 import appFirebase from '../../credenciales.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 const auth = getAuth(appFirebase)
@@ -33,7 +33,7 @@ export const Login = () => {
   }
 
   return (
-    <div className='contenedor fondo'>
+    <div className='contenedor'>
       <div className="contenedor-login">
         <div className="padre">
           <div className="card card-body">
