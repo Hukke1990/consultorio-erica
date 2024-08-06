@@ -1,3 +1,19 @@
+
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(180deg, rgba(0, 42, 97) 0%, rgb(176, 187, 235) 100%);
+}
+
+.contenedor-login {
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
+}
+
 .padre {
     display: flex;
     align-items: center;
@@ -12,8 +28,8 @@
 
 .estilo-profile {
     border-radius: 50%;
-    height: 120px;
-    width: 120px;
+    height: 150px;
+    width: 150px;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -35,7 +51,7 @@
 }
 
 .btnfrom{
-    background-color: #0D6EFD;
+    background-color: #343b46;
     border-color: slategray;
     border-radius: 30px;
     width: 100%;
@@ -43,4 +59,50 @@
     border-width: 0px;
     margin-bottom: 20px;
     color: white;
+}
+
+.btnfrom:hover {
+    transition: 0.5s;
+    background-color: #0D6EFD;
+}
+
+.btnLogout{
+    background-color: #343b46;
+    border-color: slategray;
+    border-radius: 30px;
+    width: 20%;
+    padding: 15px;
+    border-width: 0px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.btnLogout:hover {
+    transition: 0.5s;
+    background-color: #ff0000;
+}
+
+.card{
+    text-align: center;
+}
+
+.texto{
+    font-size: 16px;
+    color: slategray;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+}
+
+.btnswitch{
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 8px;
+    border-width: 0px;
+    color: slategray;
+    font-size: 16px;
+}
+
+.btnswitch:hover {
+    transition: 0.5s;
+    color: #0D6EFD;
 }
