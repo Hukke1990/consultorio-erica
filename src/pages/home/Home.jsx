@@ -11,9 +11,7 @@ const auth = getAuth(appFirebase);
 export const Home = () => {
   return (
     <div>
-      <Nav />
       <Body />
-      <Footer />
     </div>
   );
 }
