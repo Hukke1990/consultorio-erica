@@ -8,8 +8,6 @@ export const Body = () => {
             <div className='padre-body'>
                 <h2>Noticias y Recordatorios</h2>
 
-                <NavLink to='/pacientes'>Pacientes</NavLink>
-
                 <h3>Noticias</h3>
                 <p>Nuevo estudio revela la efectividad de la telemedicina en la atención primaria</p>
                 <p>Se inaugura nuevo centro de salud en la ciudad</p>
