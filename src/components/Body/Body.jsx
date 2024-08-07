@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Body.css';
 
 export const Body = () => {
@@ -6,6 +7,8 @@ export const Body = () => {
         <div className='contenedor-body'>
             <div className='padre-body'>
                 <h2>Noticias y Recordatorios</h2>
+
+                <NavLink to='/pacientes'>Pacientes</NavLink>
 
                 <h3>Noticias</h3>
                 <p>Nuevo estudio revela la efectividad de la telemedicina en la atención primaria</p>

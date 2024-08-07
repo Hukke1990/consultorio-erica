@@ -22,15 +22,20 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
       if (usuarioFirebase) {
         setUsuario(usuarioFirebase);
-        navigate('/home');
+        if (window.location.pathname === '/login' || window.location.pathname === '/') {
+          navigate('/home');
+        }
       } else {
         setUsuario(null);
-        navigate('/login');
+        if (window.location.pathname !== '/login') {
+          navigate('/login');
+        }
       }
     });
 
     return () => unsubscribe(); // Limpiar el listener cuando el componente se desmonte
-  }, [navigate, auth]);
+  }, [navigate]);
+
   console.log('usuario', usuario);
 
   return (
@@ -39,7 +44,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home correoUsuario={usuario?.email} />} />
-        <Route path='/pacientes' element={<Pacientes />} />
+        <Route path="/pacientes" element={<Pacientes />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
       {usuario && <Footer />}
