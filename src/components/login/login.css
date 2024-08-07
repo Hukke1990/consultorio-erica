@@ -67,7 +67,7 @@
 
 .card {
     text-align: center;
-    background-image: url(./assets/fondo-login.png);
+    background-image: url(./fondo-login.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
