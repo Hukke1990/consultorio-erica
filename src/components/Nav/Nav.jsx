@@ -12,8 +12,8 @@ export const Nav = () => {
         <nav className='contenedor-nav'>
             <div className='nav'>
                 <ul>
-                    <li><NavLink exact to='/'>Inicio</NavLink></li>
-                    <li><NavLink to='/Pacientes'>Pacientes</NavLink></li>
+                    <li><NavLink to='/home'>Inicio</NavLink></li>
+                    <li><NavLink to='/pacientes'>Pacientes</NavLink></li>
                     <li>
                         <button className='btnSignOut' onClick={() => signOut(auth)}>
                             <NavLink to='/Login'>Cerrar Sesión</NavLink>

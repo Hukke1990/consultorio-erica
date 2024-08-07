@@ -8,6 +8,7 @@ import { Footer } from './components/Footer/Footer';
 // Importar componentes
 import { Login } from './components/login/Login';
 import { Home } from './pages/home/Home';
+import { Pacientes } from './pages/pacientes/Pacientes';
 
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home correoUsuario={usuario?.email} />} />
+        <Route path='/pacientes' element={<Pacientes />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
       {usuario && <Footer />}
