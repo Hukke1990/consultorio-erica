@@ -1,108 +1,18 @@
-
-
-.contenedor{
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(180deg, rgba(0, 42, 97) 0%, rgb(176, 187, 235) 100%);
+/* Resetear márgenes y padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
 }
 
-.contenedor-login {
-    display: flex;
-    justify-content: center;
-    max-width: 400px;
-}
-
-.padre {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.tamanio-imagen {
-    width: 100%;
-    height: 800px;
-    margin-top: 100px;
-}
-
-.estilo-profile {
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.cajatexto{
-    background-color: #cccccc40;
-    border-color: slategray;
-    border-radius: 30px;
-    width: 100%;
-    padding: 15px;
-    border-width: 0px;
-    margin-bottom: 20px;
-}
-
-.cajatexto:focus{
-    outline: 1px solid cornflowerblue;
-    box-shadow: 0 0 10px cornflowerblue;
-}
-
-.btnfrom{
-    background-color: #343b46;
-    border-color: slategray;
-    border-radius: 30px;
-    width: 100%;
-    padding: 15px;
-    border-width: 0px;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.btnfrom:hover {
-    transition: 0.5s;
-    background-color: #0D6EFD;
-}
-
-.btnLogout{
-    background-color: #343b46;
-    border-color: slategray;
-    border-radius: 30px;
-    width: 20%;
-    padding: 15px;
-    border-width: 0px;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.btnLogout:hover {
-    transition: 0.5s;
-    background-color: #ff0000;
-}
-
-.card{
-    text-align: center;
-}
-
-.texto{
-    font-size: 16px;
-    color: slategray;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 5px;
-}
-
-.btnswitch{
-    background-color: transparent;
-    border-radius: 30px;
-    padding: 8px;
-    border-width: 0px;
-    color: slategray;
-    font-size: 16px;
-}
-
-.btnswitch:hover {
-    transition: 0.5s;
-    color: #0D6EFD;
+/* Estilos para el contenedor principal de la aplicación */
+.App {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url(./assets/fondo02.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }

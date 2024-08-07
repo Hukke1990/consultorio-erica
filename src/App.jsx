@@ -1,34 +1,55 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import appFirebase from '../src/credenciales';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { Nav } from './components/Nav/Nav';
+import { Footer } from './components/Footer/Footer';
 
-//importando los modulos de firebase
-import appFirebase from '../src/credenciales'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
-const auth = getAuth(appFirebase)
+// Importar componentes
+import { Login } from './components/login/Login';
+import { Home } from './pages/home/Home';
+import { Pacientes } from './pages/pacientes/Pacientes';
 
-//importar nuestros componentes
-import { Login } from './components/Login'
-import { Home } from './components/Home'
+import './App.css';
 
-import './App.css'
+const auth = getAuth(appFirebase);
 
 function App() {
+  const [usuario, setUsuario] = useState(null);
+  const navigate = useNavigate();
 
-  const [usuario, setUsuario] = useState(null)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUsuario(usuarioFirebase);
+        if (window.location.pathname === '/login' || window.location.pathname === '/') {
+          navigate('/home');
+        }
+      } else {
+        setUsuario(null);
+        if (window.location.pathname !== '/login') {
+          navigate('/login');
+        }
+      }
+    });
 
-  onAuthStateChanged(auth, (usuarioFirebase) => {
-    if (usuarioFirebase) {
-      setUsuario(usuarioFirebase)
-    }
-    else {
-      setUsuario(null)
-    }
-  })
+    return () => unsubscribe(); // Limpiar el listener cuando el componente se desmonte
+  }, [navigate]);
+
+  console.log('usuario', usuario);
 
   return (
-    <div>
-      {usuario ? <Home correoUsuario={usuario.email} /> : <Login />}
+    <div className='App'>
+      {usuario && <Nav />}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home correoUsuario={usuario?.email} />} />
+        <Route path="/pacientes" element={<Pacientes />} />
+        <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
+      </Routes>
+      {usuario && <Footer />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

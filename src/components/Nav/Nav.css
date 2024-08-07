@@ -1,0 +1,56 @@
+/* Estilos generales para el contenedor de navegación */
+.contenedor-nav {
+    background: linear-gradient(180deg, #223b51 0%, #2d4a75 100%);
+    padding: 1rem;
+
+}
+
+/* Estilos para la navegación */
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para la lista de navegación */
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para los elementos de la lista */
+.nav li {
+    display: inline;
+    position: relative;
+}
+
+/* Estilos para los enlaces de navegación */
+.nav a,
+.nav span {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+/* Estilos para los enlaces activos */
+.nav a.active {
+    border-bottom: #98721d solid 2px;
+}
+
+/* Estilos para los enlaces en estado hover */
+.nav a:hover {
+    transition: 0.5s ease-in-out;
+    border-bottom: #98721d solid 2px;
+}
+
+.btnSignOut {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
