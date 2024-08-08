@@ -6,7 +6,7 @@ export const Body = () => {
     return (
         <div className='contenedor-body'>
             <div className='padre-body'>
-                <h2>Noticias y Recordatorios</h2>
+                <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
 
                 <h3>Noticias</h3>
                 <p>Nuevo estudio revela la efectividad de la telemedicina en la atención primaria</p>
