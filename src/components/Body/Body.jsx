@@ -9,11 +9,11 @@ export const Body = () => {
                 <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
 
                 <h3>Noticias</h3>
-                <p>Nuevo estudio revela la efectividad de la telemedicina en la atención primaria</p>
-                <p>Se inaugura nuevo centro de salud en la ciudad</p>
-                <p>Campaña de vacunación contra la gripe comienza la próxima semana</p>
-                <p>Conferencia sobre avances en cardiología este fin de semana</p>
-                <p>Recordatorio: Actualización de software del sistema de administración el próximo lunes</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni nam itaque fuga explicabo. Magni ipsa enim nobis, ab at corporis accusantium architecto quas aliquid rem necessitatibus magnam vero vitae voluptatum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, necessitatibus</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat culpa corporis iusto itaque harum sequi eveniet. Officia quisquam corrupti facere vitae, nemo molestias nesciunt iste dolor quae. Nemo, amet perspiciatis?</p>
+                <p>Lorem, Fugiat culpa corporis iusto itaque harum sequi eveniet. Officia quisquam corrupti facere vitae, nemo molestias nesciunt iste dolor quae. Nemo, amet perspiciatis?</p>
+                <p>Recordatorio: lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <p>Tips para una alimentación saludable durante el verano</p>
 
                 <h3>Recordatorios de Consultas</h3>

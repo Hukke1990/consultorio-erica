@@ -11,10 +11,10 @@ export const Pacientes = () => {
                 </div>
 
                 <ul>
-                    <li><NavLink to='/'>Registro</NavLink></li>
-                    <li><NavLink to='/'>Diagnostico</NavLink></li>
-                    <li><NavLink to='/'>Historial Clinico</NavLink></li>
-                    <li><NavLink to='/'>Citas</NavLink></li>
+                    <li><NavLink to='/pacientes/registro'>Registro</NavLink></li>
+                    <li><NavLink to='/pacientes/diagnostico'>Diagnostico</NavLink></li>
+                    <li><NavLink to='/pacientes/historialClinico'>Historial Clinico</NavLink></li>
+                    <li><NavLink to='/pacientes/Citas'>Citas</NavLink></li>
                 </ul>
 
             </div>

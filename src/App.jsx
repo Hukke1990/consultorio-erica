@@ -9,6 +9,12 @@ import { Footer } from './components/Footer/Footer';
 import { Login } from './components/login/Login';
 import { Home } from './pages/home/Home';
 import { Pacientes } from './pages/pacientes/Pacientes';
+import { Registro } from './pages/pacientes/registro/Registro';
+import { Diagnostico } from './pages/pacientes/diagnostico/Diagnostico';
+import { HistorialClinico } from './pages/pacientes/historialClinico/HistorialClinico';
+import { Citas } from './pages/pacientes/Citas/Citas';
+
+
 
 import './App.css';
 
@@ -45,6 +51,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home correoUsuario={usuario?.email} />} />
         <Route path="/pacientes" element={<Pacientes />} />
+        <Route path="/pacientes/registro" element={<Registro />} />
+        <Route path="/pacientes/diagnostico" element={<Diagnostico />} />
+        <Route path="/pacientes/historialClinico" element={<HistorialClinico />} />
+        <Route path="/pacientes/Citas" element={<Citas />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
       {usuario && <Footer />}
