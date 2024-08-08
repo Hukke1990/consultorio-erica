@@ -20,16 +20,6 @@ export const Body = () => {
                 <p>Consulta con el Dr. Pérez a las 10:00 AM</p>
                 <p>Consulta con la Dra. Gómez a las 11:30 AM</p>
                 <p>Consulta con el Dr. Martínez a las 1:00 PM</p>
-
-                <h3>Próximos Turnos</h3>
-                <p>Paciente: Juan Pérez - Turno: 12 de Agosto, 10:00 AM</p>
-                <p>Paciente: Ana Gómez - Turno: 12 de Agosto, 11:30 AM</p>
-                <p>Paciente: María Martínez - Turno: 12 de Agosto, 1:00 PM</p>
-
-                <h3>Diagnósticos Recientes</h3>
-                <p>Paciente: Juan Pérez - Diagnóstico: Gripe Común</p>
-                <p>Paciente: Ana Gómez - Diagnóstico: Alergia Estacional</p>
-                <p>Paciente: María Martínez - Diagnóstico: Hipertensión</p>
             </div>
         </div>
     );
