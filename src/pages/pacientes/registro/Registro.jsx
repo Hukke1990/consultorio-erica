@@ -23,6 +23,8 @@ export const Registro = () => {
         email: '',
     });
 
+    const [mensajeExito, setMensajeExito] = useState('');
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -47,8 +49,24 @@ export const Registro = () => {
 
         try {
             await addDoc(collection(db, 'pacientes'), filteredValues);
-            alert('Paciente registrado con éxito');
-            navigate('/pacientes');
+            setMensajeExito(`Paciente ${formValues.nombre} ${formValues.apellido} registrado con éxito`);
+            setFormValues({
+                nombre: '',
+                apellido: '',
+                fechaNacimiento: '',
+                sexo: '',
+                obraSocial: '',
+                plan: '',
+                carnet: '',
+                dni: '',
+                provincia: '',
+                ciudad: '',
+                direccion: '',
+                telefono: '',
+                email: '',
+            });
+            // No redirigir inmediatamente, para que se vea el mensaje
+            setTimeout(() => navigate('/pacientes'), 3000);
         } catch (error) {
             console.error('Error al registrar paciente:', error);
             alert('Hubo un error al registrar el paciente');
@@ -94,8 +112,8 @@ export const Registro = () => {
                             </div>
                             <div>
                                 <label htmlFor="sexo">Sexo</label>
-                                <select name="sexo" id="">
-                                    <option value="">Seleccione una opcion</option>
+                                <select name="sexo" value={formValues.sexo} onChange={handleChange}>
+                                    <option value="">Seleccione una opción</option>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Femenino">Femenino</option>
                                 </select>
@@ -197,8 +215,12 @@ export const Registro = () => {
                         <button type="button" className='boton-registro cancelar'><NavLink to='/pacientes'>Cancelar</NavLink></button>
                     </div>
                 </form>
+                {mensajeExito && (
+                    <div className='mensaje-exito'>
+                        <p>{mensajeExito}</p>
+                    </div>
+                )}
             </div>
         </div>
-    )
-}
-
+    );
+};
