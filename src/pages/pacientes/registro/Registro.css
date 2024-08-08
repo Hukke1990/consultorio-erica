@@ -92,3 +92,27 @@
 .cancelar:hover {
     background-color: #920202;
 }
+
+.registros {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.registros label {
+    width: 100px;
+}
+
+.registros input {
+    margin-left: 10px;
+    border-radius: 5px;
+    border: #98721d 1px solid;
+    width: 300px;
+}
+
+.registros select {
+    border-radius: 5px;
+    border: #98721d 1px solid;
+    margin-left: 10px;
+    width: 300px;
+}

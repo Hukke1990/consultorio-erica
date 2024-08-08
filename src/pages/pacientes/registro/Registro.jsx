@@ -79,7 +79,7 @@ export const Registro = () => {
                 <form className='form-registro' onSubmit={handleSubmit}>
                     <fieldset className='fieldset-registro'>
                         <div className='inputs-registro'>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="nombre">Nombre</label>
                                 <input
                                     type="text"
@@ -89,7 +89,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="apellido">Apellido</label>
                                 <input
                                     type="text"
@@ -99,7 +99,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
                                 <input
                                     type="date"
@@ -109,7 +109,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="sexo">Sexo</label>
                                 <select name="sexo" value={formValues.sexo} onChange={handleChange}>
                                     <option value="">Seleccione una opción</option>
@@ -117,7 +117,7 @@ export const Registro = () => {
                                     <option value="Femenino">Femenino</option>
                                 </select>
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="obraSocial">Obra Social</label>
                                 <input
                                     type="text"
@@ -127,7 +127,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="plan">Plan</label>
                                 <input
                                     type="text"
@@ -137,7 +137,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="carnet">Carnet</label>
                                 <input
                                     type="text"
@@ -147,7 +147,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="dni">DNI</label>
                                 <input
                                     type="text"
@@ -157,7 +157,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="provincia">Provincia</label>
                                 <input
                                     type="text"
@@ -167,7 +167,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="ciudad">Ciudad</label>
                                 <input
                                     type="text"
@@ -177,7 +177,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="direccion">Dirección</label>
                                 <input
                                     type="text"
@@ -187,7 +187,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="telefono">Telefono</label>
                                 <input
                                     type="text"
@@ -197,7 +197,7 @@ export const Registro = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='registros' >
                                 <label htmlFor="email">Email</label>
                                 <input
                                     type="email"
