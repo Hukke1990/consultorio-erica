@@ -65,7 +65,6 @@ export const Registro = () => {
                 telefono: '',
                 email: '',
             });
-            // No redirigir inmediatamente, para que se vea el mensaje
             setTimeout(() => navigate('/pacientes'), 3000);
         } catch (error) {
             console.error('Error al registrar paciente:', error);
