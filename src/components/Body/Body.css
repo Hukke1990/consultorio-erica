@@ -10,7 +10,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    /* min-height: 100vh; */
+    margin-top: 70px;
 }
 
 .padre-body {
