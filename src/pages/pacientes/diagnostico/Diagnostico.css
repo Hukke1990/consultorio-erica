@@ -1,0 +1,63 @@
+.contenedor-diagnostico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 91vh; */
+    margin-top: 70px;
+}
+
+.padre-diagnostico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
+    background-color: #ffffffd3;
+    box-shadow: #000000 0 0 10px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 10px;
+    width: 100vw;
+    max-width: 800px;
+
+    /* text-shadow: #000000 0 0 2px; */
+    color: #3a3a3a;
+}
+
+.contenedor-pacientes-diagnostico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.contenedor-pacientes-diagnostico h2 {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 5px;
+}
+
+.contenedor-pacientes-diagnostico ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.contenedor-pacientes-diagnostico li {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.contenedor-pacientes-diagnostico li:hover {
+    border-bottom: #98721d 2px solid;
+}

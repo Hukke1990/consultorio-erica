@@ -13,6 +13,7 @@ import { Registro } from './pages/pacientes/registro/Registro';
 import { Diagnostico } from './pages/pacientes/diagnostico/Diagnostico';
 import { HistorialClinico } from './pages/pacientes/historialClinico/HistorialClinico';
 import { Citas } from './pages/pacientes/Citas/Citas';
+import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente'
 
 
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/pacientes/diagnostico" element={<Diagnostico />} />
         <Route path="/pacientes/historialClinico" element={<HistorialClinico />} />
         <Route path="/pacientes/Citas" element={<Citas />} />
+        <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
       {usuario && <Footer />}
