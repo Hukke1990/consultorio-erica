@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyAc5yYix8jN7GbrybOHTWAaLQREn_S29io",
   authDomain: "consultorio-erica.firebaseapp.com",
+  databaseURL: "https://consultorio-erica-default-rtdb.firebaseio.com",
   projectId: "consultorio-erica",
   storageBucket: "consultorio-erica.appspot.com",
   messagingSenderId: "537526543657",
