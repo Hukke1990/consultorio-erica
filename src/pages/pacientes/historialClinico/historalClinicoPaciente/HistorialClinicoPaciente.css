@@ -73,3 +73,17 @@
 .boton-volver:hover {
     background-color: #98711d;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-historial-clinico-paciente {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-historial-clinico-paciente {
+        width: 100%;
+        padding: 10px;
+    }
+    
+}
