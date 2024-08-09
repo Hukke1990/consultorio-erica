@@ -19,3 +19,25 @@
     width: 100px;
     border-radius: 50%;
 }
+
+.contenedor-menuLateral {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: -250px;
+    top: 0px;
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+.contenedor-menuLateral.abierto {
+    left: 0;
+    visibility: hidden;
+}
+
+.padre-menu-texto.rotar i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
