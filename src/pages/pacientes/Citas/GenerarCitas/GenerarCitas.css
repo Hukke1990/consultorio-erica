@@ -110,5 +110,10 @@
         width: 100%;
         padding: 10px;
     }
+
+    .campo input,
+    .campo textarea {
+        width: 300px;
+    }
     
 }
