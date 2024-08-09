@@ -87,3 +87,20 @@
     border-bottom: #a50606 1px solid;
     cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-menuLateral {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: 100px;
+        top: 0px;
+        width: 250px;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 9999;
+    }
+    
+}

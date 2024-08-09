@@ -40,6 +40,7 @@
     padding: 15px;
     border-width: 0px;
     margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cajatexto:focus {
@@ -99,4 +100,8 @@
     transition: 0.5s;
     color: #98721d;
     text-shadow: #e7e0c6 0 0 10px;
+}
+
+@media screen and (max-width: 500px) {
+    
 }

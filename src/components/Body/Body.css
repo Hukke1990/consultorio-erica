@@ -130,3 +130,13 @@ body {
     transform: rotate(180deg);
     transition: transform 0.3s ease;
 }
+
+@media screen and (max-width: 500px) {
+    
+    .noMenuLateral {
+        width: 100%;
+        padding: 10px;
+    }
+
+    
+}
