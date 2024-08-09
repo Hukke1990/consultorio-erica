@@ -112,9 +112,25 @@
     width: 300px;
 }
 
+.registros input:focus {
+    transition: 0.2s;
+    outline: #0356f0 1px solid;
+    box-shadow: 0 0 5px #063b9e;
+}
+
+input::placeholder {
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
 .registros select {
+    font-family: 'Roboto', sans-serif;
     border-radius: 5px;
     border: #98721d 1px solid;
     margin-left: 10px;
     width: 300px;
+}
+
+.registros select option {
+    font-family: 'Roboto', sans-serif;
 }

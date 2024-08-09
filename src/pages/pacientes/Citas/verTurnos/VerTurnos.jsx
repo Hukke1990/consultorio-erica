@@ -35,10 +35,10 @@ export const VerTurnos = () => {
                         <ul>
                             {turnos.map((turno) => (
                                 <li key={turno.id}>
-                                    <p><strong>Paciente:</strong> {turno.nombre} {turno.apellido}</p>
-                                    <p><strong>Fecha:</strong> {new Date(turno.fecha).toLocaleDateString()}</p>
-                                    <p><strong>Hora:</strong> {turno.hora}</p>
-                                    <p><strong>Motivo:</strong> {turno.motivo}</p>
+                                    <p><span>Paciente:</span> {turno.nombre} {turno.apellido}</p>
+                                    <p><span>Fecha:</span> {new Date(turno.fecha).toLocaleDateString()}</p>
+                                    <p><span>Hora:</span> {turno.hora}</p>
+                                    <p><span>Motivo:</span> {turno.motivo}</p>
                                 </li>
                             ))}
                         </ul>

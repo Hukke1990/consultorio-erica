@@ -51,14 +51,27 @@
 }
 
 .campo label {
+    font-family: 'Rboto', sans-serif;
+    font-weight: 400;
     width: 100px;
 }
 
 .campo input,
 .campo textarea {
+    font-family: 'Rboto', sans-serif;
+    font-weight: 400;
     width: 100%;
     margin: 0;
     box-sizing: border-box;
+    border: #98721d 1px solid;
+    border-radius: 5px;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    transition: 0.2s;
+    outline: #0356f0 1px solid;
+    box-shadow: 0 0 5px #063b9e;
 }
 
 .campo textarea {

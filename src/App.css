@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Playfair Display", serif;  /* border: red solid 1px; */
+  font-family: "Playfair Display", serif;  
+  /* border: red solid 1px; */
 }
 
 /* Estilos para el contenedor principal de la aplicación */

@@ -69,12 +69,19 @@
 
 .contenedor-formDiagnostico textarea {
     width: 400px;
-    height: 100px;
+    min-height: 100px;
     resize:vertical;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #98721d;
     margin: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedor-formDiagnostico textarea:focus {
+    transition: 0.2s;
+    outline: #0356f0 1px solid;
+    box-shadow: 0 0 5px #063b9e;
 }
 
 .contenedor-formDiagnostico label {

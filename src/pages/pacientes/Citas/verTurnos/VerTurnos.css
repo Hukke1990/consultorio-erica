@@ -57,7 +57,14 @@
     flex-direction: column;
 }
 
+.contenedor-listaTurnos li span {
+    font-family: 'Rboto', sans-serif;
+    font-weight: bold;
+}
+
+
 .contenedor-listaTurnos li p {
+    font-family: 'Rboto', sans-serif;
     margin: 0;
     padding: 5px;
 }

@@ -42,6 +42,11 @@
     cursor: pointer;
 }
 
+.padre-turnos a {
+    font-family: 'Rboto', sans-serif;
+    font-weight: 400;
+}
+
 .padre-turnos li:hover {
     border-bottom: #98721d 2px solid;
 }
