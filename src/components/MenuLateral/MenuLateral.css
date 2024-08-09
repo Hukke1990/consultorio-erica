@@ -1,4 +1,4 @@
-.contenedor-menuLateral {
+.padre-menuLateral {
     display: flex;
     flex-direction: column;
     align-items: center;

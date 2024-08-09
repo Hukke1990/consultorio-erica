@@ -39,18 +39,30 @@ export const Body = () => {
             <div className='padre-body'>
                 <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
 
-                {/* Otras secciones */}
+                <div className='contenedor-padre'>
+                    <div className='padre-menu'>
+                        <button className='padre-menu-texto'>
+                            <i className="bi bi-caret-left-fill"></i>
+                        </button>
+                    </div>
 
-                <h3>Recordatorios de Consultas</h3>
-                {turnosProximos.length > 0 ? (
-                    turnosProximos.map((turno, index) => (
-                        <p key={index}>
-                            Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{turno.fecha}</span> a las <span>{turno.hora}</span>
-                        </p>
-                    ))
-                ) : (
-                    <p>No hay consultas programadas para los próximos días.</p>
-                )}
+
+                    <div className='padre-recordatorios'>
+                        <h3>Recordatorios de Consultas</h3>
+                        {turnosProximos.length > 0 ? (
+                            turnosProximos.map((turno, index) => (
+                                <p key={index}>
+                                    Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{turno.fecha}</span> a las <span>{turno.hora}</span>
+                                </p>
+                            ))
+                        ) : (
+                            <p>No hay consultas programadas para los próximos días.</p>
+                        )}
+                    </div>
+
+                </div>
+
+                {/* Otras secciones */}
             </div>
         </div>
     );

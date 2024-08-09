@@ -6,7 +6,7 @@ import { MenuLateral } from '../../components/MenuLateral/MenuLateral.jsx';
 export const Home = () => {
   return (
     <div className='contenedor-home'>
-      {/* <MenuLateral /> */}
+      <MenuLateral />
       <Body />
     </div>
   );

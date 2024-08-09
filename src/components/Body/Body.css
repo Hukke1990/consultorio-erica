@@ -27,6 +27,7 @@ body {
     padding: 10px;
     width: 100vw;
     max-width: 800px;
+    min-height: 500px;
     
     /* text-shadow: #000000 0 0 2px; */
     color: #3a3a3a;
@@ -43,4 +44,56 @@ body {
 .padre-body span {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+}
+
+.padre-recordatorios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 130px;
+}
+
+.padre-recordatorios h3 {
+    padding: 10px;
+}
+
+.contenedor-padre {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.padre-menu-texto {
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    text-orientation: mixed;
+    writing-mode: vertical-lr;
+    padding: 5px;
+}
+
+.padre-menu {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    /* margin: 0 auto; */
+    top: 100px;
+}
+
+.padre-menu-texto i {
+    font-size: 20px;
+    color: #2b2b2b;
+}
+
+.padre-menu-texto:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg, #98711d6c 0%, #53472d00 100%);
+    border-radius: 5px;
+    height: 100px;
 }
