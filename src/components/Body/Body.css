@@ -35,3 +35,12 @@ body {
 .padre-titulo {
     border-bottom: #98721d 2px solid;
 }
+
+.padre-body p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.padre-body span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}

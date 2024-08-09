@@ -14,6 +14,8 @@ import { Diagnostico } from './pages/pacientes/diagnostico/Diagnostico';
 import { HistorialClinico } from './pages/pacientes/historialClinico/HistorialClinico';
 import { HistorialClinicoPaciente } from './pages/pacientes/historialClinico/historalClinicoPaciente/HistorialClinicoPaciente';
 import { Citas } from './pages/pacientes/Citas/Citas';
+import { GenerarCitas } from './pages/pacientes/Citas/GenerarCitas/GenerarCitas';
+import { VerTurnos } from './pages/pacientes/Citas/verTurnos/VerTurnos';
 import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente'
 
 
@@ -58,6 +60,8 @@ function App() {
         <Route path="/pacientes/historialClinico" element={<HistorialClinico />} />
         <Route path="/pacientes/historialClinico/historalClinicoPaciente/:id" element={<HistorialClinicoPaciente />} />
         <Route path="/pacientes/Citas" element={<Citas />} />
+        <Route path="/pacientes/Citas/GenerarCitas" element={<GenerarCitas />} />
+        <Route path="/pacientes/Citas/verTurnos" element={<VerTurnos />} />
         <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>

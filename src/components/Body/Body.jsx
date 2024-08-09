@@ -45,7 +45,7 @@ export const Body = () => {
                 {turnosProximos.length > 0 ? (
                     turnosProximos.map((turno, index) => (
                         <p key={index}>
-                            Consulta con {turno.nombre} {turno.apellido} el {turno.fecha} a las {turno.hora}
+                            Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{turno.fecha}</span> a las <span>{turno.hora}</span>
                         </p>
                     ))
                 ) : (
