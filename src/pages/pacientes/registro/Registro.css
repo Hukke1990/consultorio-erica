@@ -134,3 +134,21 @@ input::placeholder {
 .registros select option {
     font-family: 'Roboto', sans-serif;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-registro {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-registro {
+        width: 100%;
+        padding: 10px;
+    }
+
+    label {
+        display: none;
+    }
+    
+}

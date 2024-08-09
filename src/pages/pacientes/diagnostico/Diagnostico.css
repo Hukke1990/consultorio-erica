@@ -61,3 +61,17 @@
 .contenedor-pacientes-diagnostico li:hover {
     border-bottom: #98721d 2px solid;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-diagnostico {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-diagnostico {
+        width: 100%;
+        padding: 10px;
+    }
+    
+}

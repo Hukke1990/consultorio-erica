@@ -68,7 +68,7 @@ export const DiagnosticoPaciente = () => {
         <div className='contenedor-diagnosticoPaciente'>
             <div className='padre-diagnosticoPaciente'>
                 {paciente && (
-                    <div className='contenedor-datosDiagnostico'>
+                    <>
                         <h1>Diagnostico</h1>
                         <div className='datosPacientes'>
                             <p><span>Fecha de registro:</span> {new Date().toLocaleDateString()}</p>
@@ -92,7 +92,7 @@ export const DiagnosticoPaciente = () => {
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </>
                 )}
             </div>
         </div>

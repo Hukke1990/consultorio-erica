@@ -60,3 +60,17 @@
 .contenedor-pacientes-historial-clinico li:hover {
     border-bottom: #98721d 2px solid;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-historial-clinico {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-historial-clinico {
+        width: 100%;
+        padding: 10px;
+    }
+    
+}

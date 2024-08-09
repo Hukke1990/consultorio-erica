@@ -65,3 +65,16 @@
     transition: 0.5 ease-in-out;
     border-bottom: #98721d solid 2px;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-pacientes {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-pacientes {
+        width: 100%;
+    }
+    
+}
