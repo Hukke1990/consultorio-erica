@@ -98,3 +98,17 @@
 .form-turnos .btn-submit:hover {
     background-color: #98721d;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-turnos {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-GenerarTurnos {
+        width: 100%;
+        padding: 10px;
+    }
+    
+}

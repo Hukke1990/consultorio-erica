@@ -55,3 +55,16 @@
     text-decoration: none;
     color: #3a3a3a;
 }
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-turnos {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .padre-turnos {
+        width: 100%;
+    }
+    
+}
