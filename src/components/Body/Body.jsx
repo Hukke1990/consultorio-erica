@@ -1,25 +1,56 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import appFirebase from '../../../src/credenciales';
 import './Body.css';
 
+const db = getFirestore(appFirebase);
+
 export const Body = () => {
+    const [turnosProximos, setTurnosProximos] = useState([]);
+
+    useEffect(() => {
+        const obtenerTurnosProximos = async () => {
+            try {
+                const hoy = new Date();
+                const cincoDiasDespues = new Date();
+                cincoDiasDespues.setDate(hoy.getDate() + 5);
+
+                // Convertir las fechas a strings en formato 'yyyy-mm-dd' para Firebase
+                const hoyString = hoy.toISOString().split('T')[0];
+                const cincoDiasDespuesString = cincoDiasDespues.toISOString().split('T')[0];
+
+                const turnosRef = collection(db, 'turnos');
+                const q = query(turnosRef, where('fecha', '>=', hoyString), where('fecha', '<=', cincoDiasDespuesString));
+
+                const querySnapshot = await getDocs(q);
+                const turnos = querySnapshot.docs.map(doc => doc.data());
+
+                setTurnosProximos(turnos);
+            } catch (error) {
+                console.error('Error al obtener los turnos próximos:', error);
+            }
+        };
+
+        obtenerTurnosProximos();
+    }, []);
+
     return (
         <div className='contenedor-body'>
             <div className='padre-body'>
                 <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
 
-                <h3>Noticias</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni nam itaque fuga explicabo. Magni ipsa enim nobis, ab at corporis accusantium architecto quas aliquid rem necessitatibus magnam vero vitae voluptatum.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, necessitatibus</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat culpa corporis iusto itaque harum sequi eveniet. Officia quisquam corrupti facere vitae, nemo molestias nesciunt iste dolor quae. Nemo, amet perspiciatis?</p>
-                <p>Lorem, Fugiat culpa corporis iusto itaque harum sequi eveniet. Officia quisquam corrupti facere vitae, nemo molestias nesciunt iste dolor quae. Nemo, amet perspiciatis?</p>
-                <p>Recordatorio: lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>Tips para una alimentación saludable durante el verano</p>
+                {/* Otras secciones */}
 
                 <h3>Recordatorios de Consultas</h3>
-                <p>Consulta con el Dr. Pérez a las 10:00 AM</p>
-                <p>Consulta con la Dra. Gómez a las 11:30 AM</p>
-                <p>Consulta con el Dr. Martínez a las 1:00 PM</p>
+                {turnosProximos.length > 0 ? (
+                    turnosProximos.map((turno, index) => (
+                        <p key={index}>
+                            Consulta con {turno.nombre} {turno.apellido} el {turno.fecha} a las {turno.hora}
+                        </p>
+                    ))
+                ) : (
+                    <p>No hay consultas programadas para los próximos días.</p>
+                )}
             </div>
         </div>
     );

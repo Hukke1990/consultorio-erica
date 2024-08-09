@@ -87,6 +87,7 @@ export const Registro = () => {
                                     placeholder='Nombre'
                                     value={formValues.nombre}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -97,6 +98,7 @@ export const Registro = () => {
                                     placeholder='Apellido'
                                     value={formValues.apellido}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -107,11 +109,16 @@ export const Registro = () => {
                                     placeholder='Fecha de Nacimiento'
                                     value={formValues.fechaNacimiento}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
                                 <label htmlFor="sexo">Sexo</label>
-                                <select name="sexo" value={formValues.sexo} onChange={handleChange}>
+                                <select
+                                    name="sexo"
+                                    value={formValues.sexo}
+                                    onChange={handleChange}>
+                                    required
                                     <option value="">Seleccione una opción</option>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Femenino">Femenino</option>
@@ -125,6 +132,7 @@ export const Registro = () => {
                                     placeholder='Obra Social'
                                     value={formValues.obraSocial}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -135,6 +143,7 @@ export const Registro = () => {
                                     placeholder='Plan'
                                     value={formValues.plan}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -145,6 +154,7 @@ export const Registro = () => {
                                     placeholder='Carnet'
                                     value={formValues.carnet}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -155,6 +165,7 @@ export const Registro = () => {
                                     placeholder='D.N.I'
                                     value={formValues.dni}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -165,6 +176,7 @@ export const Registro = () => {
                                     placeholder='Provincia'
                                     value={formValues.provincia}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -175,6 +187,7 @@ export const Registro = () => {
                                     placeholder='Ciudad'
                                     value={formValues.ciudad}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -185,6 +198,7 @@ export const Registro = () => {
                                     placeholder='Direccion'
                                     value={formValues.direccion}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -195,6 +209,7 @@ export const Registro = () => {
                                     placeholder='Telefono'
                                     value={formValues.telefono}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className='registros' >
@@ -205,6 +220,7 @@ export const Registro = () => {
                                     placeholder='Email'
                                     value={formValues.email}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                         </div>

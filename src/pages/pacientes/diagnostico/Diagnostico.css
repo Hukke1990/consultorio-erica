@@ -53,7 +53,6 @@
 .contenedor-pacientes-diagnostico li {
     width: 100%;
     text-align: center;
-    padding: 5px;
     list-style: none;
     cursor: pointer;
 }

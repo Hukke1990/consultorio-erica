@@ -97,9 +97,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .registros label {
+    font-family: 'Roboto', sans-serif;
     width: 100px;
 }
 

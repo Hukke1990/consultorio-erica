@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { NavLink } from 'react-router-dom';
+import { getFirestore, doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import appFirebase from '../../../../../src/credenciales';
 import './DiagnosticoPaciente.css';
@@ -11,12 +12,27 @@ export const DiagnosticoPaciente = () => {
     const [paciente, setPaciente] = useState(null);
     const [diagnostico, setDiagnostico] = useState('');
 
+    const calcularEdad = (fechaNacimiento) => {
+        const hoy = new Date();
+        const nacimiento = new Date(fechaNacimiento);
+        let edad = hoy.getFullYear() - nacimiento.getFullYear();
+        const mes = hoy.getMonth() - nacimiento.getMonth();
+
+        if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+            edad--;
+        }
+
+        return edad;
+    };
+
     useEffect(() => {
         const obtenerPaciente = async () => {
             try {
                 const pacienteDoc = await getDoc(doc(db, 'pacientes', id));
                 if (pacienteDoc.exists()) {
-                    setPaciente(pacienteDoc.data());
+                    const dataPaciente = pacienteDoc.data();
+                    const edad = calcularEdad(dataPaciente.fechaNacimiento);
+                    setPaciente({ ...dataPaciente, edad });
                 } else {
                     console.error('No se encontró el paciente');
                 }
@@ -28,10 +44,16 @@ export const DiagnosticoPaciente = () => {
         obtenerPaciente();
     }, [id]);
 
+    function capitalize(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await setDoc(doc(db, 'diagnosticos', id), {
+            // Guardar diagnóstico en la subcolección "diagnosticos" dentro del documento del paciente
+            const diagnosticosCollection = collection(db, `pacientes/${id}/diagnosticos`);
+            await addDoc(diagnosticosCollection, {
                 diagnostico,
                 fecha: new Date().toLocaleDateString(),
             });
@@ -43,20 +65,36 @@ export const DiagnosticoPaciente = () => {
     };
 
     return (
-        <div className='contenedor-diagnostico'>
-            {paciente && (
-                <>
-                    <h1>Diagnóstico para {paciente.nombre} {paciente.apellido}</h1>
-                    <form onSubmit={handleSubmit}>
-                        <textarea
-                            value={diagnostico}
-                            onChange={(e) => setDiagnostico(e.target.value)}
-                            placeholder="Escriba el diagnóstico aquí..."
-                        ></textarea>
-                        <button type="submit">Registrar Diagnóstico</button>
-                    </form>
-                </>
-            )}
+        <div className='contenedor-diagnosticoPaciente'>
+            <div className='padre-diagnosticoPaciente'>
+                {paciente && (
+                    <div className='contenedor-datosDiagnostico'>
+                        <h1>Diagnostico</h1>
+                        <div className='datosPacientes'>
+                            <p><span>Fecha de registro:</span> {new Date().toLocaleDateString()}</p>
+                            <p><span>Nombre:</span> {capitalize(paciente.nombre)}</p>
+                            <p><span>Apellido:</span> {capitalize(paciente.apellido)}</p>
+                            <p><span>DNI:</span> {paciente.dni}</p>
+                            <p><span>Edad:</span> {paciente.edad} años</p>
+                        </div>
+
+                        <div className='contenedor-formDiagnostico'>
+                            <form onSubmit={handleSubmit}>
+                                <label htmlFor="diagnostico">Diagnóstico</label>
+                                <textarea
+                                    value={diagnostico}
+                                    onChange={(e) => setDiagnostico(e.target.value)}
+                                    placeholder="Escriba el diagnóstico aquí..."
+                                ></textarea>
+                                <div className='botones-registro'>
+                                    <button className='boton-registro' type="submit">Guardar</button>
+                                    <button className='boton-registro cancelar' type="button"><NavLink to='/pacientes/diagnostico'>Cancelar</NavLink></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

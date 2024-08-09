@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import appFirebase from '../../../../src/credenciales';
@@ -27,6 +28,10 @@ export const Diagnostico = () => {
         obtenerPacientes();
     }, []);
 
+    function capitalize(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
     const handleSelectPaciente = (id) => {
         navigate(`/pacientes/diagnostico/diagnosticoPaciente/${id}`);
     };
@@ -42,11 +47,14 @@ export const Diagnostico = () => {
                     <ul>
                         {pacientes.map((paciente) => (
                             <li key={paciente.id} onClick={() => handleSelectPaciente(paciente.id)}>
-                                {paciente.nombre} {paciente.apellido}
+                                {capitalize(paciente.nombre)} {capitalize(paciente.apellido)}
                             </li>
                         ))}
                     </ul>
                 </div>
+                <NavLink to={`/pacientes`}>
+                    <button className='boton-volver'>Volver</button>
+                </NavLink>
             </div>
         </div>
     );
