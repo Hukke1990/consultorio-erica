@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import appFirebase from '../src/credenciales';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { Header } from './components/header/Header';
 import { Nav } from './components/Nav/Nav';
 import { Footer } from './components/Footer/Footer';
 
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className='App'>
+      {usuario && <Header correoUsuario={usuario.email} />}
       {usuario && <Nav correoUsuario={usuario.email} />}
       <Routes>
         <Route path="/login" element={<Login />} />
