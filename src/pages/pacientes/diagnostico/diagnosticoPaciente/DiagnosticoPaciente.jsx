@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom'; // Importa useNavigate
 import { getFirestore, doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import appFirebase from '../../../../../src/credenciales';
@@ -7,10 +7,11 @@ import './DiagnosticoPaciente.css';
 
 const db = getFirestore(appFirebase);
 
-export const DiagnosticoPaciente = () => {
+export const DiagnosticoPaciente = ({ uidUsuario }) => {
     const { id } = useParams();
     const [paciente, setPaciente] = useState(null);
     const [diagnostico, setDiagnostico] = useState('');
+    const navigate = useNavigate(); // Usa useNavigate
 
     const calcularEdad = (fechaNacimiento) => {
         const hoy = new Date();
@@ -31,6 +32,14 @@ export const DiagnosticoPaciente = () => {
                 const pacienteDoc = await getDoc(doc(db, 'pacientes', id));
                 if (pacienteDoc.exists()) {
                     const dataPaciente = pacienteDoc.data();
+
+                    // Verifica si el paciente pertenece al usuario autenticado
+                    if (dataPaciente.userId !== uidUsuario) {
+                        console.error('No tiene permiso para ver este paciente');
+                        navigate('/pacientes/diagnostico');
+                        return;
+                    }
+
                     const edad = calcularEdad(dataPaciente.fechaNacimiento);
                     setPaciente({ ...dataPaciente, edad });
                 } else {
@@ -42,7 +51,7 @@ export const DiagnosticoPaciente = () => {
         };
 
         obtenerPaciente();
-    }, [id]);
+    }, [id, uidUsuario, navigate]);
 
     function capitalize(word) {
         return word.charAt(0).toUpperCase() + word.slice(1);
@@ -56,8 +65,12 @@ export const DiagnosticoPaciente = () => {
             await addDoc(diagnosticosCollection, {
                 diagnostico,
                 fecha: new Date().toLocaleDateString(),
+                userId: uidUsuario // Asocia el diagnóstico con el usuario
             });
             alert('Diagnóstico registrado con éxito');
+
+            // Usar setTimeout para redirigir después de 1 segundo
+            setTimeout(() => navigate('/pacientes/diagnostico'), 1000);
         } catch (error) {
             console.error('Error al registrar el diagnóstico:', error);
             alert('Hubo un error al registrar el diagnóstico');

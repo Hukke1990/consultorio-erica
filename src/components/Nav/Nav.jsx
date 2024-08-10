@@ -6,11 +6,12 @@ import { getAuth, signOut } from 'firebase/auth';
 
 const auth = getAuth(appFirebase);
 
-export const Nav = () => {
+export const Nav = (correoUsuario) => {
 
     return (
         <nav className='contenedor-nav nav'>
             <ul>
+                <li><p>Bienvenido {correoUsuario.correoUsuario}</p></li>
                 <li><NavLink to='/home'>Inicio</NavLink></li>
                 <li><NavLink to='/pacientes'>Pacientes</NavLink></li>
                 <li>

@@ -43,7 +43,8 @@ export const Login = () => {
               <input type="password" placeholder='Contraseña' className='cajatexto' id='password' />
               <button className='btnfrom'>{registrando ? 'Registrate' : 'Iniciar Sesion'}</button>
             </form>
-            <h4 className='texto'>{registrando ? 'Ya tienes una cuenta?' : 'No tienes una cuenta?'}<button className='btnswitch' onClick={() => setRegistrando(!registrando)}>{registrando ? 'Iniciar Sesion' : 'Registrate'}</button></h4>
+            <h4 className='texto'>No tienes una cuenta ? contacta con tu administrador</h4>
+            {/* <h4 className='texto'>{registrando ? 'Ya tienes una cuenta?' : 'No tienes una cuenta?'}<button className='btnswitch' onClick={() => setRegistrando(!registrando)}>{registrando ? 'Iniciar Sesion' : 'Registrate'}</button></h4> */}
           </div>
         </div>
       </div>

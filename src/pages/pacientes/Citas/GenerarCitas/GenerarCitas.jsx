@@ -6,7 +6,7 @@ import './GenerarCitas.css';
 
 const db = getFirestore(appFirebase);
 
-export const GenerarCitas = () => {
+export const GenerarCitas = ({ uidUsuario }) => {
     const [pacientes, setPacientes] = useState([]);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -18,7 +18,9 @@ export const GenerarCitas = () => {
         const obtenerPacientes = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, 'pacientes'));
-                const pacientesList = querySnapshot.docs.map(doc => doc.data());
+                const pacientesList = querySnapshot.docs
+                    .map(doc => doc.data())
+                    .filter(paciente => paciente.userId === uidUsuario); // Filtrar pacientes del usuario actual
                 setPacientes(pacientesList);
             } catch (error) {
                 console.error('Error al obtener los pacientes:', error);
@@ -26,12 +28,13 @@ export const GenerarCitas = () => {
         };
 
         obtenerPacientes();
-    }, []);
+    }, [uidUsuario]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await addDoc(collection(db, 'turnos'), {
+                userId: uidUsuario, // Asociar el turno al usuario actual
                 nombre,
                 apellido,
                 fecha,

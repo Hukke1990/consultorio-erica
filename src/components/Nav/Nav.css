@@ -26,6 +26,10 @@
     position: relative;
 }
 
+.nav li p {
+    color: #fff;
+}
+
 /* Estilos para los enlaces de navegación */
 .nav a,
 .nav span {
