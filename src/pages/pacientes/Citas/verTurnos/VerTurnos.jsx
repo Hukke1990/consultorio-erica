@@ -6,17 +6,19 @@ import './VerTurnos.css';
 
 const db = getFirestore(appFirebase);
 
-export const VerTurnos = () => {
+export const VerTurnos = ({ uidUsuario }) => {
     const [turnos, setTurnos] = useState([]);
 
     useEffect(() => {
         const obtenerTurnos = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, 'turnos'));
-                const turnosList = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
+                const turnosList = querySnapshot.docs
+                    .map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }))
+                    .filter(turno => turno.userId === uidUsuario); // Filtrar turnos del usuario actual
                 setTurnos(turnosList);
             } catch (error) {
                 console.error('Error al obtener los turnos:', error);
@@ -24,7 +26,7 @@ export const VerTurnos = () => {
         };
 
         obtenerTurnos();
-    }, []);
+    }, [uidUsuario]);
 
     return (
         <div className="contenedor-verTurnos">
@@ -49,8 +51,7 @@ export const VerTurnos = () => {
                 <NavLink to={`/pacientes/Citas`}>
                     <button className='boton-volver'>Volver</button>
                 </NavLink>
-
             </div>
         </div>
     );
-}
+};

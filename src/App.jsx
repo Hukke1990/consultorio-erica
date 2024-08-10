@@ -16,9 +16,7 @@ import { HistorialClinicoPaciente } from './pages/pacientes/historialClinico/his
 import { Citas } from './pages/pacientes/Citas/Citas';
 import { GenerarCitas } from './pages/pacientes/Citas/GenerarCitas/GenerarCitas';
 import { VerTurnos } from './pages/pacientes/Citas/verTurnos/VerTurnos';
-import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente'
-
-
+import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente';
 
 import './App.css';
 
@@ -30,6 +28,7 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
+      console.log('Usuario Firebase:', usuarioFirebase); // Verifica aquí
       if (usuarioFirebase) {
         setUsuario(usuarioFirebase);
         if (window.location.pathname === '/login' || window.location.pathname === '/') {
@@ -46,8 +45,6 @@ function App() {
     return () => unsubscribe(); // Limpiar el listener cuando el componente se desmonte
   }, [navigate]);
 
-  console.log('usuario', usuario);
-
   return (
     <div className='App'>
       {usuario && <Nav />}
@@ -55,14 +52,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home correoUsuario={usuario?.email} />} />
         <Route path="/pacientes" element={<Pacientes />} />
-        <Route path="/pacientes/registro" element={<Registro />} />
-        <Route path="/pacientes/diagnostico" element={<Diagnostico />} />
-        <Route path="/pacientes/historialClinico" element={<HistorialClinico />} />
-        <Route path="/pacientes/historialClinico/historalClinicoPaciente/:id" element={<HistorialClinicoPaciente />} />
+        <Route path="/pacientes/registro" element={<Registro uidUsuario={usuario?.uid} />} />
+        <Route path="/pacientes/diagnostico" element={<Diagnostico uidUsuario={usuario?.uid} />} />
+        <Route path="/pacientes/historialClinico" element={<HistorialClinico uidUsuario={usuario?.uid} />} />
+        <Route path="/pacientes/historialClinico/historalClinicoPaciente/:id" element={<HistorialClinicoPaciente uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/Citas" element={<Citas />} />
         <Route path="/pacientes/Citas/GenerarCitas" element={<GenerarCitas />} />
         <Route path="/pacientes/Citas/verTurnos" element={<VerTurnos />} />
-        <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente />} />
+        <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
       {usuario && <Footer />}

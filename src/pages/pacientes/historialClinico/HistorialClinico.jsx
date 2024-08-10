@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import appFirebase from '../../../../src/credenciales';
 import './HistorialClinico.css';
 
 const db = getFirestore(appFirebase);
 
-export const HistorialClinico = () => {
+export const HistorialClinico = ({ uidUsuario }) => {
     const [pacientes, setPacientes] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         const obtenerPacientes = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, 'pacientes'));
+                // Filtrar pacientes por el ID del usuario autenticado
+                const q = query(collection(db, 'pacientes'), where('userId', '==', uidUsuario));
+                const querySnapshot = await getDocs(q);
                 const pacientesList = querySnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
@@ -26,7 +28,7 @@ export const HistorialClinico = () => {
         };
 
         obtenerPacientes();
-    }, []);
+    }, [uidUsuario]);
 
     function capitalize(word) {
         return word.charAt(0).toUpperCase() + word.slice(1);

@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const db = getFirestore(appFirebase);
 
-export const Registro = () => {
+export const Registro = ({ uidUsuario }) => {
     const [formValues, setFormValues] = useState({
         nombre: '',
         apellido: '',
@@ -48,7 +48,10 @@ export const Registro = () => {
         }
 
         try {
-            await addDoc(collection(db, 'pacientes'), filteredValues);
+            await addDoc(collection(db, 'pacientes'), {
+                ...filteredValues,
+                userId: uidUsuario  // Guardar el ID del usuario
+            });
             setMensajeExito(`Paciente ${formValues.nombre} ${formValues.apellido} registrado con éxito`);
             setFormValues({
                 nombre: '',
