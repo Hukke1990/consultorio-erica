@@ -57,6 +57,7 @@ export const DiagnosticoPaciente = () => {
                 diagnostico,
                 fecha: new Date().toLocaleDateString(),
             });
+            setTimeout(() => navigate('/diagnostico'), 3000);
             alert('Diagnóstico registrado con éxito');
         } catch (error) {
             console.error('Error al registrar el diagnóstico:', error);

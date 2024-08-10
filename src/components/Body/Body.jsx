@@ -54,8 +54,8 @@ export const Body = () => {
                             </button>
                         </div> */}
 
-                        <div className='padre-recordatorios'>                            
                             <h3>Recordatorios de Consultas</h3>
+                        <div className='padre-recordatorios'>                            
                             {turnosProximos.length > 0 ? (
                                 turnosProximos.map((turno, index) => (
                                     <p key={index}>
