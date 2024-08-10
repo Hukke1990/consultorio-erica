@@ -42,18 +42,19 @@ export const Body = () => {
     return (
         <div className='contenedor-body'>
             <div className='padre-body'>
-                <MenuLateral menuAbierto={menuAbierto} />
+                {/* <MenuLateral menuAbierto={menuAbierto} /> */} {/* Pasamos el estado menuAbierto al componente MenuLateral */}
+                
                 <div className="noMenuLateral">
                     <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
 
                     <div className='contenedor-padre'>
-                        <div className='padre-menu'>
+                        {/* <div className='padre-menu'>
                             <button className={`padre-menu-texto ${menuAbierto ? '' : 'rotar'}`} onClick={toggleMenu}>
                                 <i className="bi bi-caret-left-fill"></i>
                             </button>
-                        </div>
+                        </div> */}
 
-                        <div className='padre-recordatorios'>
+                        <div className='padre-recordatorios'>                            
                             <h3>Recordatorios de Consultas</h3>
                             {turnosProximos.length > 0 ? (
                                 turnosProximos.map((turno, index) => (

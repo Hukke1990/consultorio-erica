@@ -13,6 +13,11 @@ export const Nav = () => {
             <ul>
                 <li><NavLink to='/home'>Inicio</NavLink></li>
                 <li><NavLink to='/pacientes'>Pacientes</NavLink></li>
+                <li>
+                    <button className='btnSignOut' onClick={() => signOut(auth)}>
+                        <NavLink to='/Login'>Cerrar Sesión</NavLink>
+                    </button>
+                </li>
             </ul>
 
         </nav>

@@ -76,7 +76,7 @@
     transition: transform 0.3s ease;
 }
 
-.btnSignOut {
+/* .btnSignOut {
     border-top: #98721d 1px solid;
     width: 230px;
     text-align: center;
@@ -86,7 +86,7 @@
     color: #a50606;
     border-bottom: #a50606 1px solid;
     cursor: pointer;
-}
+} */
 
 @media screen and (max-width: 500px) {
 
