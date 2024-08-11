@@ -15,29 +15,33 @@ export const VerPacientes = ({ uidUsuario }) => {
     useEffect(() => {
         const obtenerPacientes = async () => {
             try {
+                // Consulta para obtener los pacientes del usuario actual
                 const pacientesRef = collection(db, 'pacientes');
-                let q = query(pacientesRef, where('uidUsuario', '==', uidUsuario));
-
-                if (filtroNombre.trim() !== '' || filtroApellido.trim() !== '') {
-                    const condiciones = [];
-                    if (filtroNombre.trim() !== '') {
-                        condiciones.push(where('nombre', '>=', filtroNombre));
-                        condiciones.push(where('nombre', '<=', filtroNombre + '\uf8ff'));
-                    }
-                    if (filtroApellido.trim() !== '') {
-                        condiciones.push(where('apellido', '>=', filtroApellido));
-                        condiciones.push(where('apellido', '<=', filtroApellido + '\uf8ff'));
-                    }
-                    q = query(pacientesRef, where('uidUsuario', '==', uidUsuario), ...condiciones);
-                }
-
+                const q = query(pacientesRef, where('userId', '==', uidUsuario)); // Cambiado a 'userId'
                 const querySnapshot = await getDocs(q);
                 const pacientesList = querySnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
                 }));
 
-                setPacientes(pacientesList);
+                console.log("Pacientes obtenidos:", pacientesList);  // Verificación
+
+                // Aplicar filtros locales
+                let pacientesFiltrados = pacientesList;
+
+                if (filtroNombre.trim() !== '') {
+                    pacientesFiltrados = pacientesFiltrados.filter(paciente =>
+                        paciente.nombre.toLowerCase().includes(filtroNombre.toLowerCase())
+                    );
+                }
+
+                if (filtroApellido.trim() !== '') {
+                    pacientesFiltrados = pacientesFiltrados.filter(paciente =>
+                        paciente.apellido.toLowerCase().includes(filtroApellido.toLowerCase())
+                    );
+                }
+
+                setPacientes(pacientesFiltrados);
             } catch (error) {
                 console.error('Error al obtener los pacientes:', error);
             }
