@@ -66,6 +66,9 @@ export const Body = ({ uidUsuario }) => {
                     <div className='contenedor-noticias'>
                         <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
                         <div className='padre-recordatorios'>
+                            <h3>Noticias y novedades:</h3>
+                            <p className='noticias'>Se agregó la funcion de ver todos los pacientes, editarlos y eliminarlos.</p>
+                            <h3>Recordatorio de turnos:</h3>
                             {turnosProximos.length > 0 ? (
                                 turnosProximos.map((turno, index) => (
                                     <p key={index}>
