@@ -2,7 +2,20 @@
     letter-spacing: 1px;
 }
 
-.contenedor-header span {
+.contenedor-header h1 {
     color: #98721d;
     font-style: italic;
+}
+
+.contenedor-header span {
+    color: #000000;
+    font-style: normal;
+}
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-header span {
+        display: none;
+    }
+    
 }

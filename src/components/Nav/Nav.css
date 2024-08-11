@@ -36,7 +36,6 @@ a {
 
 .padre-nav ul li a:hover {
     color: #98721d;
-    border-bottom: #98721d 1px solid;
 }
 
 
@@ -49,4 +48,12 @@ a {
 
 .active {
     color: #98721d;
+}
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-nav {
+        width: 410px;
+    }
+    
 }

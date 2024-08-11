@@ -63,17 +63,19 @@ export const Body = ({ uidUsuario }) => {
         <div className='contenedor-body'>
             <div className='padre-body'>
                 <div className="noMenuLateral">
-                    <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
-                    <div className='padre-recordatorios'>
-                        {turnosProximos.length > 0 ? (
-                            turnosProximos.map((turno, index) => (
-                                <p key={index}>
-                                    Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{formatearFecha(turno.fecha)}</span> a las <span>{turno.hora}hs</span>
-                                </p>
-                            ))
-                        ) : (
-                            <p>No hay consultas programadas para los próximos días.</p>
-                        )}
+                    <div className='contenedor-noticias'>
+                        <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
+                        <div className='padre-recordatorios'>
+                            {turnosProximos.length > 0 ? (
+                                turnosProximos.map((turno, index) => (
+                                    <p key={index}>
+                                        Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{formatearFecha(turno.fecha)}</span> a las <span>{turno.hora}hs</span>
+                                    </p>
+                                ))
+                            ) : (
+                                <p>No hay consultas programadas para los próximos días.</p>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

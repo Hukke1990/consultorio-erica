@@ -20,7 +20,7 @@
     padding: 10px;
     width: 100vw;
     max-width: 800px;
-    min-height: 500px;
+    height: 550px;
 
     /* text-shadow: #000000 0 0 2px; */
     color: #3a3a3a;
@@ -62,8 +62,7 @@
 }
 
 .contenedor-pacientes a:hover {
-    transition: 0.5 ease-in-out;
-    border-bottom: #98721d solid 2px;
+    color: #98721d;
 }
 
 @media screen and (max-width: 500px) {
