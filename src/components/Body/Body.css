@@ -121,6 +121,10 @@ body {
     transition: transform 0.3s ease;
 }
 
+.noticias {
+    color: green;
+}
+
 @media screen and (max-width: 500px) {
 
     .contenedor-body {
@@ -135,10 +139,6 @@ body {
 
     .contenedor-noticias {
         width: 100%;
-    }
-
-    .padre-recordatorios {
-        
     }
     
 }

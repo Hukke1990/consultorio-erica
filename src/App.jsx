@@ -10,6 +10,8 @@ import { Footer } from './components/Footer/Footer';
 import { Login } from './components/login/Login';
 import { Home } from './pages/home/Home';
 import { Pacientes } from './pages/pacientes/Pacientes';
+import { VerPacientes } from './pages/pacientes/verPacientes/VerPacientes';
+import { EditarPaciente } from './pages/pacientes/verPacientes/editarPaciente/EditarPaciente';
 import { Registro } from './pages/pacientes/registro/Registro';
 import { Diagnostico } from './pages/pacientes/diagnostico/Diagnostico';
 import { HistorialClinico } from './pages/pacientes/historialClinico/HistorialClinico';
@@ -55,6 +57,8 @@ function App() {
         <Route path="/home" element={<Home uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes" element={<Pacientes />} />
         <Route path="/pacientes/registro" element={<Registro uidUsuario={usuario?.uid} />} />
+        <Route path="/pacientes/verPacientes" element={<VerPacientes />} />
+        <Route path="/pacientes/verPacientes/editarPaciente/:id" element={<EditarPaciente uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/diagnostico" element={<Diagnostico uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/historialClinico" element={<HistorialClinico uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/historialClinico/historalClinicoPaciente/:id" element={<HistorialClinicoPaciente uidUsuario={usuario?.uid} />} />
