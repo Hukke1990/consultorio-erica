@@ -54,9 +54,11 @@ export const HistorialClinico = ({ uidUsuario }) => {
                         ))}
                     </ul>
                 </div>
-                <NavLink to={`/pacientes`}>
-                    <button className='boton-volver'>Volver</button>
-                </NavLink>
+                <div className='contenedor-volver'>
+                    <NavLink to={`/pacientes`}>
+                        <button className='boton-volver'>Volver</button>
+                    </NavLink>
+                </div>
             </div>
         </div>
     );

@@ -4,14 +4,14 @@
     align-items: center;
     justify-content: center;
     /* min-height: 91vh; */
-    margin-top: 70px;
+    margin-top: 10px;
 }
 
 .padre-registro {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
     background-color: #ffffffd3;
     box-shadow: #000000 0 0 10px;
@@ -20,9 +20,12 @@
     padding: 10px;
     width: 100vw;
     max-width: 800px;
-
     /* text-shadow: #000000 0 0 2px; */
     color: #3a3a3a;
+    flex-wrap: nowrap;
+    align-content: center;
+    /* overflow-y: auto;
+    scrollbar-width: thin; */
 }
 
 .padre-registro h1 {

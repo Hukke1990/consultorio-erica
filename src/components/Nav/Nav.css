@@ -1,60 +1,59 @@
-/* Estilos generales para el contenedor de navegación */
 .contenedor-nav {
-    background: linear-gradient(180deg, #223b51 0%, #2d4a75 100%);
-    padding: 1rem;
-
-}
-
-/* Estilos para la navegación */
-.nav {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    background-color: #ffffffd3;
+    box-shadow: #000000 0 0 10px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    width: 100vw;
+    max-width: 800px;
 }
 
-/* Estilos para la lista de navegación */
-.nav ul {
-    list-style: none;
+.padre-nav ul {
     display: flex;
-    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     padding: 0;
     margin: 0;
 }
 
-/* Estilos para los elementos de la lista */
-.nav li {
-    display: inline;
-    position: relative;
+.padre-nav ul li {
+    margin: 0 10px;
+    list-style: none;
 }
 
-.nav li p {
-    color: #fff;
-}
-
-/* Estilos para los enlaces de navegación */
-.nav a,
-.nav span {
+.padre-nav ul li a {
+    margin-inline: 10px;
     text-decoration: none;
-    color: #fff;
-    /* font-weight: bold; */
-    padding: 0.5rem 1rem;
-    cursor: pointer;
 }
 
-/* Estilos para los enlaces activos */
-.nav a.active {
-    border-bottom: #98721d solid 2px;
+a {
+    color: #3a3a3a;
 }
 
-/* Estilos para los enlaces en estado hover */
-.nav a:hover {
-    transition: 0.5s ease-in-out;
-    border-bottom: #98721d solid 2px;
+.padre-nav ul li a:hover {
+    color: #98721d;
 }
+
 
 .btnSignOut {
     background-color: transparent;
     border: none;
-    color: #fff;
-    /* font-weight: bold; */
+    color: white;
     cursor: pointer;
+}
+
+.active {
+    color: #98721d;
+}
+
+@media screen and (max-width: 500px) {
+
+    .contenedor-nav {
+        width: 410px;
+    }
+    
 }

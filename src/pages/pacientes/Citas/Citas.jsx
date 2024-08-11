@@ -13,7 +13,7 @@ export const Citas = () => {
                     <li><NavLink to='/pacientes/citas/generarCitas'>Generar Turnos</NavLink></li>
                     <li><NavLink to='/pacientes/citas/verTurnos'>Ver Turnos</NavLink></li>
                 </ul>
-                <div>
+                <div className='contenedor-volver'>
                     <NavLink to={`/pacientes`}>
                         <button className='boton-volver'>Volver</button>
                     </NavLink>
