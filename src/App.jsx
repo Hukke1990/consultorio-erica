@@ -57,7 +57,7 @@ function App() {
         <Route path="/home" element={<Home uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes" element={<Pacientes />} />
         <Route path="/pacientes/registro" element={<Registro uidUsuario={usuario?.uid} />} />
-        <Route path="/pacientes/verPacientes" element={<VerPacientes />} />
+        <Route path="/pacientes/verPacientes" element={<VerPacientes uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/verPacientes/editarPaciente/:id" element={<EditarPaciente uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/diagnostico" element={<Diagnostico uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/historialClinico" element={<HistorialClinico uidUsuario={usuario?.uid} />} />

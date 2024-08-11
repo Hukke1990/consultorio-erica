@@ -6,7 +6,7 @@ import './VerPacientes.css';
 
 const db = getFirestore(appFirebase);
 
-export const VerPacientes = () => {
+export const VerPacientes = ({ uidUsuario }) => {
     const [pacientes, setPacientes] = useState([]);
     const [filtroNombre, setFiltroNombre] = useState('');
     const [filtroApellido, setFiltroApellido] = useState('');
@@ -16,7 +16,7 @@ export const VerPacientes = () => {
         const obtenerPacientes = async () => {
             try {
                 const pacientesRef = collection(db, 'pacientes');
-                let q = pacientesRef;
+                let q = query(pacientesRef, where('uidUsuario', '==', uidUsuario));
 
                 if (filtroNombre.trim() !== '' || filtroApellido.trim() !== '') {
                     const condiciones = [];
@@ -28,7 +28,7 @@ export const VerPacientes = () => {
                         condiciones.push(where('apellido', '>=', filtroApellido));
                         condiciones.push(where('apellido', '<=', filtroApellido + '\uf8ff'));
                     }
-                    q = query(pacientesRef, ...condiciones);
+                    q = query(pacientesRef, where('uidUsuario', '==', uidUsuario), ...condiciones);
                 }
 
                 const querySnapshot = await getDocs(q);
@@ -44,7 +44,7 @@ export const VerPacientes = () => {
         };
 
         obtenerPacientes();
-    }, [filtroNombre, filtroApellido]);
+    }, [filtroNombre, filtroApellido, uidUsuario]);
 
     const editarPaciente = (id) => {
         navigate(`/pacientes/verPacientes/editarPaciente/${id}`);
