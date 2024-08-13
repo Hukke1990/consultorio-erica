@@ -68,6 +68,7 @@ export const Body = ({ uidUsuario }) => {
                         <div className='padre-recordatorios'>
                             <h3>Noticias y novedades:</h3>
                             <p className='noticias'>Se agregó la funcion de ver todos los pacientes, editarlos y eliminarlos.</p>
+                            <p className='noticias'>Se agregó la verificacion de turnos disponibles a la hora de generar uno nuevo, si el turno no esta disponible informara de este.</p>
                             <h3>Recordatorio de turnos:</h3>
                             {turnosProximos.length > 0 ? (
                                 turnosProximos.map((turno, index) => (

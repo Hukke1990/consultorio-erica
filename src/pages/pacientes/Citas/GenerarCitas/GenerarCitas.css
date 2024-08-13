@@ -51,6 +51,19 @@
     margin: 10px;
 }
 
+.ocupado {
+    display: flex;
+    flex-direction: column;
+}
+
+.ocupado p {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    margin-left: 80px;
+    padding: 0;
+    text-align: center;
+}
+
 .campo label {
     font-family: 'Rboto', sans-serif;
     font-weight: 400;
