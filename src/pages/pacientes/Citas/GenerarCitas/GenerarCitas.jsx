@@ -8,33 +8,70 @@ const db = getFirestore(appFirebase);
 
 export const GenerarCitas = ({ uidUsuario }) => {
     const [pacientes, setPacientes] = useState([]);
+    const [turnos, setTurnos] = useState([]);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [fecha, setFecha] = useState('');
     const [hora, setHora] = useState('');
     const [motivo, setMotivo] = useState('');
+    const [turnoNoDisponible, setTurnoNoDisponible] = useState(false);
 
     useEffect(() => {
-        const obtenerPacientes = async () => {
+        const obtenerDatos = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, 'pacientes'));
-                const pacientesList = querySnapshot.docs
+                // Obtener pacientes
+                const querySnapshotPacientes = await getDocs(collection(db, 'pacientes'));
+                const pacientesList = querySnapshotPacientes.docs
                     .map(doc => doc.data())
-                    .filter(paciente => paciente.userId === uidUsuario); // Filtrar pacientes del usuario actual
+                    .filter(paciente => paciente.userId === uidUsuario);
                 setPacientes(pacientesList);
+
+                // Obtener turnos
+                const querySnapshotTurnos = await getDocs(collection(db, 'turnos'));
+                const turnosList = querySnapshotTurnos.docs
+                    .map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }))
+                    .filter(turno => turno.userId === uidUsuario); // Filtrar turnos del usuario actual
+
+                // Verificar si los turnos se están obteniendo correctamente
+                console.log('Turnos obtenidos:', turnosList);
+
+                setTurnos(turnosList);
             } catch (error) {
-                console.error('Error al obtener los pacientes:', error);
+                console.error('Error al obtener los datos:', error);
             }
         };
 
-        obtenerPacientes();
+        obtenerDatos();
     }, [uidUsuario]);
+
+    useEffect(() => {
+        if (fecha && hora) {
+            // Normalizar los datos de fecha y hora para la comparación
+            const fechaSeleccionada = new Date(fecha).toISOString().split('T')[0];
+            const horaSeleccionada = hora.padStart(5, '0');  // Asegura que la hora tenga el formato "HH:MM"
+
+            // Verificar si el turno está ocupado
+            const turnoOcupado = turnos.some(turno =>
+                turno.fecha === fechaSeleccionada && turno.hora === horaSeleccionada
+            );
+            setTurnoNoDisponible(turnoOcupado);
+            console.log(`Turno ocupado: ${turnoOcupado}`);
+        }
+    }, [fecha, hora, turnos]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (turnoNoDisponible) {
+            alert('Este turno no está disponible.');
+            return;
+        }
+
         try {
             await addDoc(collection(db, 'turnos'), {
-                userId: uidUsuario, // Asociar el turno al usuario actual
+                userId: uidUsuario,
                 nombre,
                 apellido,
                 fecha,
@@ -42,7 +79,6 @@ export const GenerarCitas = ({ uidUsuario }) => {
                 motivo,
             });
             alert('Turno registrado con éxito');
-            // Limpiar el formulario
             setNombre('');
             setApellido('');
             setFecha('');
@@ -109,20 +145,30 @@ export const GenerarCitas = ({ uidUsuario }) => {
                             <label>Fecha</label>
                             <input
                                 type='date'
+                                name='fecha'
                                 value={fecha}
                                 onChange={(e) => setFecha(e.target.value)}
                                 required
+                                style={{ borderColor: turnoNoDisponible ? 'red' : 'initial' }}
                             />
                         </div>
-
-                        <div className='campo'>
-                            <label>Hora</label>
-                            <input
-                                type='time'
-                                value={hora}
-                                onChange={(e) => setHora(e.target.value)}
-                                required
-                            />
+                        <div className='ocupado'>
+                            <div className='campo'>
+                                <label>Hora</label>
+                                <input
+                                    type='time'
+                                    name='hora'
+                                    value={hora}
+                                    onChange={(e) => setHora(e.target.value)}
+                                    required
+                                    style={{ borderColor: turnoNoDisponible ? 'red' : 'initial' }}
+                                />
+                            </div>
+                            {turnoNoDisponible && (
+                                <p style={{ color: 'red', fontSize: '0.9rem' }}>
+                                    Este turno ya está ocupado.
+                                </p>
+                            )}
                         </div>
 
                         <div className='campo'>
