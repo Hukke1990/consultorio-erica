@@ -5,6 +5,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Header } from './components/header/Header';
 import { Nav } from './components/Nav/Nav';
 import { Footer } from './components/Footer/Footer';
+import { DarkAndLight } from './components/DarkAndLight/DarkAndLight';
 
 // Importar componentes
 import { Login } from './components/login/Login';
@@ -68,6 +69,7 @@ function App() {
         <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
+      <DarkAndLight />
       {usuario && <Footer />}
     </div>
   );

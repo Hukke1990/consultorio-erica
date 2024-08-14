@@ -17,7 +17,7 @@ export const VerPacientes = ({ uidUsuario }) => {
             try {
                 // Consulta para obtener los pacientes del usuario actual
                 const pacientesRef = collection(db, 'pacientes');
-                const q = query(pacientesRef, where('userId', '==', uidUsuario)); // Cambiado a 'userId'
+                const q = query(pacientesRef, where('userId', '==', uidUsuario));
                 const querySnapshot = await getDocs(q);
                 const pacientesList = querySnapshot.docs.map(doc => ({
                     id: doc.id,
@@ -59,8 +59,10 @@ export const VerPacientes = ({ uidUsuario }) => {
             try {
                 await deleteDoc(doc(db, 'pacientes', id));
                 setPacientes(pacientes.filter(paciente => paciente.id !== id));
+                alert('Paciente eliminado correctamente');  // Agregar mensaje de éxito
             } catch (error) {
                 console.error('Error al eliminar el paciente:', error);
+                alert('Hubo un error al eliminar el paciente');  // Agregar mensaje de error
             }
         }
     };
