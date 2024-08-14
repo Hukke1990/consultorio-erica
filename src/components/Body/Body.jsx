@@ -67,14 +67,22 @@ export const Body = ({ uidUsuario }) => {
                         <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
                         <div className='padre-recordatorios'>
                             <h3>Noticias y novedades:</h3>
-                            <p className='noticias'>Se agregó la funcion de ver todos los pacientes, editarlos y eliminarlos.</p>
-                            <p className='noticias'>Se agregó la verificacion de turnos disponibles a la hora de generar uno nuevo, si el turno no esta disponible informara de este.</p>
+                            <div className='turnosProximos'>
+                                <ul>
+                                    <li className='noticias'>Se agregó el componente <span>Generar Turnos</span></li>
+                                    <li className='noticias'>Se agregó el componente <span>Ver Turnos</span></li>
+                                </ul>
+                            </div>
                             <h3>Recordatorio de turnos:</h3>
                             {turnosProximos.length > 0 ? (
                                 turnosProximos.map((turno, index) => (
-                                    <p key={index}>
-                                        Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{formatearFecha(turno.fecha)}</span> a las <span>{turno.hora}hs</span>
-                                    </p>
+                                    <div className='turnosProximos'>
+                                        <ul>
+                                            <li key={index}>
+                                                Consulta con <span>{turno.nombre} {turno.apellido}</span> el <span>{formatearFecha(turno.fecha)}</span> a las <span>{turno.hora}hs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 ))
                             ) : (
                                 <p>No hay consultas programadas para los próximos días.</p>

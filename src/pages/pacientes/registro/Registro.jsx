@@ -230,7 +230,7 @@ export const Registro = ({ uidUsuario }) => {
                     </fieldset>
                     <div className='botones-registro'>
                         <button type="submit" className='boton-registro'>Registrar</button>
-                        <button type="button" className='boton-registro cancelar'><NavLink to='/pacientes'>Cancelar</NavLink></button>
+                        <NavLink to='/pacientes'><button type="button" className='boton-registro cancelar'>Cancelar</button></NavLink>
                     </div>
                 </form>
                 {mensajeExito && (

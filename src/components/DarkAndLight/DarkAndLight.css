@@ -1,16 +1,20 @@
 /* Estilos globales para el tema */
 body.light-mode,
 body.light-mode .App {
+    transition: 0.5s;
     background-image: url(/fondo02.png);
     color: #000;
 }
 
 body.dark-mode,
 body.dark-mode .App {
+    transition: 0.5s;
     background-image: url(/fondoDark.png);
     background-color: #121212;
     color: #fff;
 }
+
+/* Estilos para el switch */
 
 .switch {
     position: relative;
@@ -55,6 +59,118 @@ input:checked+.slider {
 input:checked+.slider::before{
     transform: translateX(26px);
 }
+
+.round {
+    border-radius: 34px;
+}
+
+.round::before {
+    border-radius: 50%;
+}
+
+/* Estilos para el header */
+
+body.light-mode .contenedor-header span {
+    color: #000000;
+    transition: 0.5s;
+}
+
+
+body.dark-mode .contenedor-header span {
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+body.light-mode .contenedor-header h1 {
+    transition: 0.5s;
+    color: #98721d;
+}
+
+body.dark-mode .contenedor-header h1 {
+    transition: 0.5s;
+    color: #f0a70a;
+}
+/* Estilos para el body */
+
+body.dark-mode .noMenuLateral,
+body.dark-mode .contenedor-nav,
+body.dark-mode .padre-pacientes,
+body.dark-mode .padre-registro,
+body.dark-mode .padre-diagnostico,
+body.dark-mode .padre-diagnosticoPaciente,
+body.dark-mode .padre-historial-clinico,
+body.dark-mode .padre-historial-clinico-paciente,
+body.dark-mode .padre-turnos,
+body.dark-mode .padre-GenerarTurnos,
+body.dark-mode .padre-verTurnos {
+    transition: 0.5s;
+    background-color: #15113dd0;
+    color: #fff;
+    transition: 0.5s;
+}
+
+body.light-mode .noMenuLateral,
+body.light-mode .contenedor-nav,
+body.light-mode .padre-pacientes,
+body.light-mode .padre-registro,
+body.light-mode .padre-diagnostico,
+body.light-mode .padre-diagnosticoPaciente,
+body.light-mode .padre-historial-clinico,
+body.light-mode .padre-historial-clinico-paciente,
+body.light-mode .padre-turnos,
+body.light-mode .padre-GenerarTurnos,
+body.light-mode .padre-verTurnos {
+    transition: 0.5s;
+    background-color: #f0f0f0;
+    color: #000;
+    transition: 0.5s;
+}
+
+body.dark-mode a {
+    color: #ffffff;
+}
+
+body.dark-mode .acciones-paciente button {
+    transition: 0.5s;
+    color: #ffffff;
+}
+
+body.dark-mode .acciones-paciente button:hover {
+    color: #f0a70a;
+}
+
+body.dark-mode .padre-recordatorios .noticias {
+    transition: 0.5s;
+    color: #ffffff;
+}
+
+body.light-mode .padre-recordatorios .noticias {
+    transition: 0.5s;
+    color: #000000;
+}
+
+/* Estilos para el Nav */
+
+body.dark-mode .contenedor-nav a {
+    transition: 0.5s;
+    color: #ffffff;
+}
+
+body.light-mode .contenedor-nav a {
+    color: #000000;
+}
+
+body.dark-mode .contenedor-nav .active {
+    transition: 0.5s;
+    color: #f0a70a;
+}
+
+body.light-mode .contenedor-nav .active {
+    transition: 0.5s;
+    color: #98721d;
+}
+
+
 /* Puedes seguir añadiendo más estilos específicos para cada modo */
 /* body.light-mode .header {
     background-color: #f0f0f0;
