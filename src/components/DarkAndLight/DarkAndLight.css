@@ -127,16 +127,32 @@ body.light-mode .padre-verTurnos {
 }
 
 body.dark-mode a {
+    transition: 0.5s;
     color: #ffffff;
 }
 
+body.light-mode a {
+    transition: 0.5s;
+    color: #2b2b2b;
+}
 body.dark-mode .acciones-paciente button {
     transition: 0.5s;
     color: #ffffff;
 }
 
+body.light-mode .acciones-paciente button {
+    transition: 0.5s;
+    color: #2b2b2b;
+}
+
 body.dark-mode .acciones-paciente button:hover {
+    transition: 0.5s;
     color: #f0a70a;
+}
+
+body.light-mode .acciones-paciente button:hover {
+    transition: 0.5s;
+    color: #98721d;
 }
 
 body.dark-mode .padre-recordatorios .noticias {

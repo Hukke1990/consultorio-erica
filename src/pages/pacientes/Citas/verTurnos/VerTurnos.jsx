@@ -31,7 +31,9 @@ export const VerTurnos = ({ uidUsuario }) => {
     return (
         <div className="contenedor-verTurnos">
             <div className='padre-verTurnos'>
-                <h1>Ver Turnos</h1>
+                <div className='padre-titulo titulo'>
+                    <h1>Ver Turnos</h1>
+                </div>
                 <div className='contenedor-listaTurnos'>
                     {turnos.length > 0 ? (
                         <ul>

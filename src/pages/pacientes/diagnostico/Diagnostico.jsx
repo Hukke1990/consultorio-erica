@@ -42,7 +42,7 @@ export const Diagnostico = ({ uidUsuario }) => {
     return (
         <div className='contenedor-diagnostico'>
             <div className='padre-diagnostico'>
-                <div className='padre-titulo'>
+                <div className='padre-titulo titulo'>
                     <h1>Diagnostico</h1>
                 </div>
                 <div className='contenedor-pacientes-diagnostico'>

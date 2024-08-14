@@ -104,7 +104,9 @@ export const GenerarCitas = ({ uidUsuario }) => {
     return (
         <div className='contenedor-turnos'>
             <div className='padre-GenerarTurnos'>
-                <h1>Generar Turno</h1>
+                <div className='padre-titulo titulo'>
+                    <h1>Generar Turno</h1>
+                </div>
                 <form onSubmit={handleSubmit} className='form-turnos'>
                     <fieldset className='fieldset-turnos'>
                         <div className='campo'>

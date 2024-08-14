@@ -41,7 +41,7 @@ export const HistorialClinico = ({ uidUsuario }) => {
     return (
         <div className='contenedor-historial-clinico'>
             <div className='padre-historial-clinico'>
-                <div className='padre-titulo'>
+                <div className='padre-titulo titulo'>
                     <h1>Historial Clínico</h1>
                 </div>
                 <div className='contenedor-pacientes-historial-clinico'>

@@ -70,7 +70,7 @@ export const VerPacientes = ({ uidUsuario }) => {
     return (
         <div className='contenedor-pacientes'>
             <div className='padre-pacientes'>
-                <div className='padre-titulo'>
+                <div className='padre-titulo titulo'>
                     <h1>Ver Pacientes</h1>
                 </div>
 
