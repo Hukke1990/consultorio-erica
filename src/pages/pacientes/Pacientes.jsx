@@ -17,10 +17,8 @@ export const Pacientes = () => {
                         <li><NavLink to='/pacientes/verPacientes'>Ver pacientes</NavLink></li>
                         <h3>Menu Diagnostico</h3>
                         <li><NavLink to='/pacientes/diagnostico'>Diagnostico</NavLink></li>
-                        <li><NavLink to='/pacientes/diagnosticoPaciente'>Editar Diagnostico (Proximamente)</NavLink></li>
                         <h3>Menu Historial clinico</h3>
                         <li><NavLink to='/pacientes/historialClinico'>Historial Clinico</NavLink></li>
-                        <li><NavLink to='/pacientes/historialClinicoPaciente'>Editar Historial Clinico (Proximamente)</NavLink></li>
                         <li><NavLink to='/pacientes/Citas'>Turnos</NavLink></li>
                     </ul>
                 </div>
