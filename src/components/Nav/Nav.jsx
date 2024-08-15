@@ -3,6 +3,7 @@ import './Nav.css';
 import { NavLink } from 'react-router-dom';
 import appFirebase from '../../../src/credenciales.js';
 import { getAuth, signOut } from 'firebase/auth';
+import { DarkAndLight } from '../DarkAndLight/DarkAndLight.jsx';
 
 const auth = getAuth(appFirebase);
 
@@ -19,6 +20,9 @@ export const Nav = ({ correoUsuario }) => {
                             <NavLink to='/Login'>Cerrar Sesión</NavLink>
                         </button>
                     </li>
+                    <div className='position'>
+                        <DarkAndLight />
+                    </div>
                 </ul>
             </div>
         </nav>

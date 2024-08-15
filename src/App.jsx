@@ -71,7 +71,6 @@ function App() {
         <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
-      <DarkAndLight />
       {usuario && <Footer />}
     </div>
   );
