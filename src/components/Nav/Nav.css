@@ -12,6 +12,12 @@
     max-width: 800px;
 }
 
+.position {
+    position: absolute;
+    right: 0;
+    margin-right: 5px;
+}
+
 .padre-nav ul {
     display: flex;
     flex-direction: row;
