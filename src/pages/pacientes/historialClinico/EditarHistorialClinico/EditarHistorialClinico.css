@@ -1,0 +1,81 @@
+.padre-editar-historial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
+    background-color: #ffffffd3;
+    box-shadow: #000000 0 0 10px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    width: 100vw;
+    max-width: 800px;
+    min-height: 550px;
+
+    /* text-shadow: #000000 0 0 2px; */
+    color: #3a3a3a;
+}
+
+.contenedor-editar-historial form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.textarea {
+    margin-top: 30px;
+}
+
+.contenedor-editar-historial .textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.contenedor-editar-historial form textarea {
+    resize: none;
+    width: 400px;
+    min-height: 100px;
+    max-height: 300px;
+    padding-inline: 10px;
+}
+
+.acciones-editar-historial {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.editarHistorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 500px) {
+
+    .padre-editar-historial {
+        width: 100%;
+        padding: 10px;
+    }   
+
+    .contenedor-editar-historial form textarea {
+        width: 100%;
+    }
+    
+}
