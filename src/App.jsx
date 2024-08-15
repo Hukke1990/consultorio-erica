@@ -5,6 +5,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Header } from './components/header/Header';
 import { Nav } from './components/Nav/Nav';
 import { Footer } from './components/Footer/Footer';
+import { DarkAndLight } from './components/DarkAndLight/DarkAndLight';
 
 // Importar componentes
 import { Login } from './components/login/Login';
@@ -16,6 +17,7 @@ import { Registro } from './pages/pacientes/registro/Registro';
 import { Diagnostico } from './pages/pacientes/diagnostico/Diagnostico';
 import { HistorialClinico } from './pages/pacientes/historialClinico/HistorialClinico';
 import { HistorialClinicoPaciente } from './pages/pacientes/historialClinico/historalClinicoPaciente/HistorialClinicoPaciente';
+import { EditarHistorialClinico } from './pages/pacientes/historialClinico/EditarHistorialClinico/EditarHistorialClinico';
 import { Citas } from './pages/pacientes/Citas/Citas';
 import { GenerarCitas } from './pages/pacientes/Citas/GenerarCitas/GenerarCitas';
 import { VerTurnos } from './pages/pacientes/Citas/verTurnos/VerTurnos';
@@ -62,12 +64,14 @@ function App() {
         <Route path="/pacientes/diagnostico" element={<Diagnostico uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/historialClinico" element={<HistorialClinico uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/historialClinico/historalClinicoPaciente/:id" element={<HistorialClinicoPaciente uidUsuario={usuario?.uid} />} />
+        <Route path="/pacientes/historialClinico/editarHistorialClinico/:id/:docId" element={<EditarHistorialClinico uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/Citas" element={<Citas />} />
         <Route path="/pacientes/Citas/GenerarCitas" element={<GenerarCitas uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/Citas/verTurnos" element={<VerTurnos uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
+      <DarkAndLight />
       {usuario && <Footer />}
     </div>
   );

@@ -17,21 +17,12 @@
     box-shadow: #000000 0 0 10px;
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    padding: 10px;
     width: 100vw;
     max-width: 800px;
-    height: 550px;
+    min-height: 550px;
 
     /* text-shadow: #000000 0 0 2px; */
     color: #3a3a3a;
-}
-
-.padre-GenerarTurnos h1 {
-    border-bottom: #98721d 2px solid;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-    letter-spacing: 5px;
 }
 
 .fieldset-turnos {

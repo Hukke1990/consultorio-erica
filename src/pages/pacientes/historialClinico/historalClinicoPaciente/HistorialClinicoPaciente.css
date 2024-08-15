@@ -17,15 +17,13 @@
     box-shadow: #000000 0 0 10px;
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    padding: 10px;
     width: 100vw;
     max-width: 800px;
-    height: 550px;
+    min-height: 550px;
 
     /* text-shadow: #000000 0 0 2px; */
     color: #3a3a3a;
 }
-
 .contenedor-historial-clinico-paciente h2 {
     width: 100%;
     text-align: center;
@@ -54,9 +52,24 @@
 }
 
 .contenedor-historial-clinico-paciente li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
     width: 100%;
     list-style: none;
     border-bottom: #98711d6c 1px solid;
+}
+
+.acciones-paciente {
+    position: relative;
+    top: -2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .boton-volver {
@@ -68,7 +81,7 @@
     background-color: #343b46;
     color: white;
     cursor: pointer;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .boton-volver:hover {

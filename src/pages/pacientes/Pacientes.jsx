@@ -6,7 +6,7 @@ export const Pacientes = () => {
     return (
         <div className='contenedor-pacientes'>
             <div className='padre-pacientes'>
-                <div className='padre-titulo'>
+                <div className='padre-titulo titulo'>
                     <h1>Pacientes</h1>
                 </div>
 

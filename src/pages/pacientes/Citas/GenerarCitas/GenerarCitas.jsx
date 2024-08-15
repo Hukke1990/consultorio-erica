@@ -104,7 +104,9 @@ export const GenerarCitas = ({ uidUsuario }) => {
     return (
         <div className='contenedor-turnos'>
             <div className='padre-GenerarTurnos'>
-                <h1>Generar Turno</h1>
+                <div className='padre-titulo titulo'>
+                    <h1>Generar Turno</h1>
+                </div>
                 <form onSubmit={handleSubmit} className='form-turnos'>
                     <fieldset className='fieldset-turnos'>
                         <div className='campo'>
@@ -183,7 +185,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                     </fieldset>
                     <div className='botones-registro'>
                         <button type='submit' className='btn-submit'>Registrar</button>
-                        <button type="button" className='boton-registro cancelar'><NavLink to='/pacientes/Citas'>Cancelar</NavLink></button>
+                        <NavLink to='/pacientes/Citas'><button type="button" className='boton-registro cancelar'>Cancelar</button></NavLink>
                     </div>
                 </form>
             </div>
