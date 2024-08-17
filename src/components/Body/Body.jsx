@@ -7,6 +7,7 @@ const db = getFirestore(appFirebase);
 
 export const Body = ({ uidUsuario }) => {
     const [turnosProximos, setTurnosProximos] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Estado para el spinner
 
     const formatearFecha = (fechaISO) => {
         const fecha = new Date(fechaISO);
@@ -17,7 +18,6 @@ export const Body = ({ uidUsuario }) => {
         return `${dia}-${mes}-${anio}`;
     };
 
-
     useEffect(() => {
         if (!uidUsuario) {
             console.error('UID del usuario no está definido');
@@ -25,6 +25,8 @@ export const Body = ({ uidUsuario }) => {
         }
 
         const obtenerTurnosProximos = async () => {
+            setIsLoading(true); // Inicia la carga
+
             try {
                 const hoy = new Date();
                 const cincoDiasDespues = new Date();
@@ -53,6 +55,8 @@ export const Body = ({ uidUsuario }) => {
                 setTurnosProximos(turnos);
             } catch (error) {
                 console.error('Error al obtener los turnos próximos:', error);
+            } finally {
+                setIsLoading(false); // Termina la carga
             }
         };
 
@@ -69,12 +73,14 @@ export const Body = ({ uidUsuario }) => {
                             <h3>Noticias y novedades:</h3>
                             <div className='turnosProximos'>
                                 <ul>
-                                    <li className='noticias'>Se agregó el componente <span>Generar Turnos</span></li>
-                                    <li className='noticias'>Se agregó el componente <span>Ver Turnos</span></li>
+                                    <li className='noticias'>Ahora se permite editar/eliminar los turnos <span>(Nuevo)</span></li>
+                                    <li className='noticias'>Ahora se permite editar/eliminar el Historial clinico de cada paciente <span>(Nuevo)</span></li>
                                 </ul>
                             </div>
                             <h3>Recordatorio de turnos:</h3>
-                            {turnosProximos.length > 0 ? (
+                            {isLoading ? (
+                                <div className="spinner"></div> // Mostrar spinner mientras se cargan los turnos
+                            ) : turnosProximos.length > 0 ? (
                                 turnosProximos.map((turno, index) => (
                                     <div className='turnosProximos'>
                                         <ul>

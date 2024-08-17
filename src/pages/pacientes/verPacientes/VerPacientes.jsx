@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs, query, where, deleteDoc, doc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import appFirebase from '../../../../src/credenciales';
 import './VerPacientes.css';
 
@@ -11,6 +11,7 @@ export const VerPacientes = ({ uidUsuario }) => {
     const [filtroNombre, setFiltroNombre] = useState('');
     const [filtroApellido, setFiltroApellido] = useState('');
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true); // Nuevo estado para el spinner
 
     useEffect(() => {
         const obtenerPacientes = async () => {
@@ -44,6 +45,8 @@ export const VerPacientes = ({ uidUsuario }) => {
                 setPacientes(pacientesFiltrados);
             } catch (error) {
                 console.error('Error al obtener los pacientes:', error);
+            } finally {
+                setIsLoading(false); // Ocultar el spinner cuando los datos se hayan cargado
             }
         };
 
@@ -99,7 +102,9 @@ export const VerPacientes = ({ uidUsuario }) => {
                 </div>
 
                 <div className='lista-pacientes'>
-                    {pacientes.length > 0 ? (
+                    {isLoading ? ( // Mostrar el spinner mientras carga
+                        <div className="spinner"></div>
+                    ) : pacientes.length > 0 ? (
                         pacientes.map((paciente) => (
                             <div key={paciente.id} className='filtro-paciente paciente'>
                                 <ul>
@@ -117,6 +122,9 @@ export const VerPacientes = ({ uidUsuario }) => {
                         <p>No se encontraron pacientes.</p>
                     )}
                 </div>
+                <NavLink to={`/pacientes`}>
+                    <button className='boton-volver'>Volver</button>
+                </NavLink>
             </div>
         </div>
     );

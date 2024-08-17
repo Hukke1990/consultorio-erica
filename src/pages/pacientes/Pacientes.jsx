@@ -12,14 +12,10 @@ export const Pacientes = () => {
 
                 <div className='contenedor-opcionesPacientes'>
                     <ul>
-                        <h3>Menu Pacientes</h3>
                         <li><NavLink to='/pacientes/registro'>Registro</NavLink></li>
                         <li><NavLink to='/pacientes/verPacientes'>Ver pacientes</NavLink></li>
-                        <h3>Menu Diagnostico</h3>
                         <li><NavLink to='/pacientes/diagnostico'>Diagnostico</NavLink></li>
-                        <h3>Menu Historial clinico</h3>
                         <li><NavLink to='/pacientes/historialClinico'>Historial Clinico</NavLink></li>
-                        <li><NavLink to='/pacientes/Citas'>Turnos</NavLink></li>
                     </ul>
                 </div>
 

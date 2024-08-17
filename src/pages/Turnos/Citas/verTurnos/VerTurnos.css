@@ -1,0 +1,120 @@
+.contenedor-verTurnos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 91vh; */
+  margin-top: 10px;
+}
+
+.padre-verTurnos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
+  background-color: #ffffffd3;
+  box-shadow: #000000 0 0 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  width: 100vw;
+  max-width: 800px;
+  min-height: 550px;
+
+  /* text-shadow: #000000 0 0 2px; */
+  color: #3a3a3a;
+}
+
+.contenedor-listaTurnos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.contenedor-listaTurnos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-listaTurnos li {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-bottom: #98711d4d 2px solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-listaTurnos li span {
+  font-family: "Rboto", sans-serif;
+  font-weight: bold;
+}
+
+.contenedor-listaTurnos li p {
+  font-family: "Rboto", sans-serif;
+  margin: 0;
+  padding: 5px;
+}
+
+.titulo-mes {
+  cursor: pointer;
+  font-family: "Rboto", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.titulo-mes:hover {
+  transition: 0.5s;
+  color: #98721d;
+}
+
+.titulo-mes.open {
+  color: #98721d;
+}
+
+.contenido-mes {
+  display: none;
+  overflow: hidden;
+  padding: 10px;
+  border-top: 2px solid #98711d4d;
+}
+
+.contenido-mes.open {
+  display: block;
+}
+
+/* Spinner CSS */
+.spinner {
+  border: 8px solid #f3f3f3; /* Color del borde */
+  border-top: 8px solid #3498db; /* Color del spinner */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .contenedor-verTurnos {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .padre-verTurnos {
+    width: 100%;
+    padding: 10px;
+  }
+}
