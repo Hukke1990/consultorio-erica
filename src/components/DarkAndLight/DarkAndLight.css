@@ -216,6 +216,12 @@ body.light-mode .titulo-mes.open {
   color: #98721d;
 }
 
+/* Estilos para Diagnoscio */
+
+body.light-mode .boton-registro button {
+  color: #ffffff;
+}
+
 /* Puedes seguir añadiendo más estilos específicos para cada modo */
 /* body.light-mode .header {
     background-color: #f0f0f0;

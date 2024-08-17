@@ -101,7 +101,7 @@ export const DiagnosticoPaciente = ({ uidUsuario }) => {
                                 ></textarea>
                                 <div className='botones-registro'>
                                     <button className='boton-registro' type="submit">Guardar</button>
-                                    <button className='boton-registro cancelar' type="button"><NavLink to='/pacientes/diagnostico'>Cancelar</NavLink></button>
+                                    <NavLink to='/pacientes/diagnostico'><button className='boton-registro cancelar' type="button">Cancelar</button></NavLink>
                                 </div>
                             </form>
                         </div>
