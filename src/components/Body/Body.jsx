@@ -66,9 +66,11 @@ export const Body = ({ uidUsuario }) => {
     return (
         <div className='contenedor-body'>
             <div className='padre-body'>
-                <div className="noMenuLateral">
+                <div className="padre-editar-historial">
                     <div className='contenedor-noticias'>
-                        <h2 className='padre-titulo'>Noticias y Recordatorios</h2>
+                        <div className='padre-titulo titulo'>
+                            <h1>Noticias y Recordatorios</h1>
+                        </div>
                         <div className='padre-recordatorios'>
                             <h3>Noticias y novedades:</h3>
                             <div className='turnosProximos'>

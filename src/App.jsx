@@ -21,6 +21,7 @@ import { EditarHistorialClinico } from './pages/pacientes/historialClinico/Edita
 import { Citas } from './pages/Turnos/Citas';
 import { GenerarCitas } from './pages/Turnos/Citas/GenerarCitas/GenerarCitas';
 import { VerTurnos } from './pages/Turnos/Citas/verTurnos/VerTurnos';
+import { EditarTurno } from './pages/Turnos/Citas/EditarTurno/EditarTurno';
 import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente';
 
 import './App.css';
@@ -68,6 +69,7 @@ function App() {
         <Route path='/turnos' element={<Citas />} />
         <Route path='/turnos/citas/generarCitas' element={<GenerarCitas uidUsuario={usuario?.uid} />} />
         <Route path='/turnos/citas/verTurnos' element={<VerTurnos uidUsuario={usuario?.uid} />} />
+        <Route path='/turnos/citas/editarTurno/:id' element={<EditarTurno uidUsuario={usuario?.uid} />} />
         {/* <Route path="/turnos/Citas" element={<Citas />} />
         <Route path="/turnos/Citas/GenerarCitas" element={<GenerarCitas uidUsuario={usuario?.uid} />} />
         <Route path="/turnos/Citas/verTurnos" element={<VerTurnos uidUsuario={usuario?.uid} />} /> */}

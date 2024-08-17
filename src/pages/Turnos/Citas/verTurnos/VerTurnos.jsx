@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom'; // Importa useNavigate
 import { getFirestore, collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import appFirebase from '../../../../../src/credenciales';
 import './VerTurnos.css';
@@ -10,6 +10,7 @@ export const VerTurnos = ({ uidUsuario }) => {
     const [turnos, setTurnos] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [openMonth, setOpenMonth] = useState(null); // Estado para el mes abierto
+    const navigate = useNavigate(); // Usa el hook useNavigate
 
     useEffect(() => {
         const obtenerTurnos = async () => {
@@ -67,8 +68,7 @@ export const VerTurnos = ({ uidUsuario }) => {
     };
 
     const handleEdit = (id) => {
-        // Aquí puedes redirigir a una página de edición o mostrar un formulario de edición
-        // Ejemplo: window.location.href = `/edit-turno/${id}`;
+        navigate(`/turnos/citas/editarTurno/${id}`); // Redirige a la página de edición
     };
 
     const turnosGrouped = groupByMonth(turnos);
