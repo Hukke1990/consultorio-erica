@@ -59,6 +59,34 @@
   padding: 5px;
 }
 
+.titulo-mes {
+  cursor: pointer;
+  font-family: "Rboto", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.titulo-mes:hover {
+  transition: 0.5s;
+  color: #98721d;
+}
+
+.titulo-mes.open {
+  color: #98721d;
+}
+
+.contenido-mes {
+  display: none;
+  overflow: hidden;
+  padding: 10px;
+  border-top: 2px solid #98711d4d;
+}
+
+.contenido-mes.open {
+  display: block;
+}
+
 /* Spinner CSS */
 .spinner {
   border: 8px solid #f3f3f3; /* Color del borde */
