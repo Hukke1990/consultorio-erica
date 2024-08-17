@@ -8,6 +8,7 @@ const db = getFirestore(appFirebase);
 
 export const VerTurnos = ({ uidUsuario }) => {
     const [turnos, setTurnos] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Nuevo estado para el spinner
 
     useEffect(() => {
         const obtenerTurnos = async () => {
@@ -22,6 +23,8 @@ export const VerTurnos = ({ uidUsuario }) => {
                 setTurnos(turnosList);
             } catch (error) {
                 console.error('Error al obtener los turnos:', error);
+            } finally {
+                setIsLoading(false); // Ocultar el spinner cuando los datos se hayan cargado
             }
         };
 
@@ -35,7 +38,9 @@ export const VerTurnos = ({ uidUsuario }) => {
                     <h1>Ver Turnos</h1>
                 </div>
                 <div className='contenedor-listaTurnos'>
-                    {turnos.length > 0 ? (
+                    {isLoading ? ( // Mostrar el spinner mientras carga
+                        <div className="spinner"></div>
+                    ) : turnos.length > 0 ? (
                         <ul>
                             {turnos.map((turno) => (
                                 <li key={turno.id}>
@@ -50,7 +55,7 @@ export const VerTurnos = ({ uidUsuario }) => {
                         <p>No hay turnos cargados.</p>
                     )}
                 </div>
-                <NavLink to={`/pacientes/Citas`}>
+                <NavLink to={`/turnos`}>
                     <button className='boton-volver'>Volver</button>
                 </NavLink>
             </div>

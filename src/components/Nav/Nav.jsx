@@ -15,9 +15,10 @@ export const Nav = ({ correoUsuario }) => {
                     {/* <li><p>Bienvenido {correoUsuario}</p></li> */}
                     <li><NavLink exact to='/home' activeClassName='active'>Inicio</NavLink></li>
                     <li><NavLink to='/pacientes' activeClassName='active'>Pacientes</NavLink></li>
+                    <li><NavLink to='/turnos' activeClassName='active'>Turnos</NavLink></li>
                     <li>
                         <button className='btnSignOut' onClick={() => signOut(auth)}>
-                            <NavLink to='/Login'>Cerrar Sesión</NavLink>
+                            <NavLink to='/Login'>Cerrar sesión</NavLink>
                         </button>
                     </li>
                     <div className='position'>

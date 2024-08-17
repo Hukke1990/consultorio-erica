@@ -11,6 +11,7 @@ export const HistorialClinicoPaciente = ({ uidUsuario }) => {
     const { id } = useParams();
     const [paciente, setPaciente] = useState(null);
     const [historial, setHistorial] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Estado para el spinner
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -39,6 +40,8 @@ export const HistorialClinicoPaciente = ({ uidUsuario }) => {
                 }
             } catch (error) {
                 console.error('Error al obtener el historial clínico:', error);
+            } finally {
+                setIsLoading(false); // Ocultar el spinner cuando los datos se hayan cargado
             }
         };
 
@@ -61,16 +64,18 @@ export const HistorialClinicoPaciente = ({ uidUsuario }) => {
     };
 
     return (
-        <div>
-            {paciente && (
-                <div className='contenedor-historial-clinico-paciente'>
-                    <div className='padre-historial-clinico-paciente'>
-                        <div className='padre-titulo titulo'>
-                            <h1>Historial Clínico</h1>
-                        </div>
-                        <div className='contenedor-historial-clinico-paciente'>
-                            <h2>Historial de {paciente.nombre} {paciente.apellido}</h2>
-                            <div className='historial-clinico-paciente'>
+        <div className='contenedor-historial-clinico-paciente'>
+            <div className='padre-historial-clinico-paciente'>
+                <div className='padre-titulo titulo'>
+                    <h1>Historial Clínico</h1>
+                </div>
+                {paciente && (
+                    <div className='contenedor-historial-clinico-paciente'>
+                        <h2>Historial de {paciente.nombre} {paciente.apellido}</h2>
+                        <div className='historial-clinico-paciente'>
+                            {isLoading ? (  // Mostrar el spinner dentro del contenedor
+                                <div className="spinner"></div>
+                            ) : (
                                 <ul>
                                     {historial.map((entrada) => (
                                         <li key={entrada.id}>
@@ -83,14 +88,14 @@ export const HistorialClinicoPaciente = ({ uidUsuario }) => {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            )}
                         </div>
-                        <NavLink to={`/pacientes/historialClinico`}>
-                            <button className='boton-volver'>Volver</button>
-                        </NavLink>
                     </div>
-                </div>
-            )}
+                )}
+                <NavLink to={`/pacientes/historialClinico`}>
+                    <button className='boton-volver'>Volver</button>
+                </NavLink>
+            </div>
         </div>
     );
 };
