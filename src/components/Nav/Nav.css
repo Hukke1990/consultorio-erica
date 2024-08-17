@@ -1,66 +1,64 @@
 .contenedor-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffffd3;
-    box-shadow: #000000 0 0 10px;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    padding: 6px;
-    width: 100vw;
-    max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffffd3;
+  box-shadow: #000000 0 0 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 6px;
+  width: 100vw;
+  max-width: 800px;
 }
 
 .position {
-    position: absolute;
-    right: 0;
-    margin-right: 5px;
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
 }
 
 .padre-nav ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .padre-nav ul li {
-    margin: 0 10px;
-    list-style: none;
+  margin: 0 10px;
+  list-style: none;
 }
 
 .padre-nav ul li a {
-    margin-inline: 10px;
-    text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  margin-inline: 10px;
+  text-decoration: none;
 }
 
 a {
-    color: #3a3a3a;
+  color: #3a3a3a;
 }
 
 .padre-nav ul li a:hover {
-    color: #98721d;
+  color: #98721d;
 }
 
-
 .btnSignOut {
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .active {
-    color: #98721d;
+  color: #98721d;
 }
 
 @media screen and (max-width: 500px) {
-
-    .contenedor-nav {
-        width: 410px;
-    }
-    
+  .contenedor-nav {
+    width: 410px;
+  }
 }
