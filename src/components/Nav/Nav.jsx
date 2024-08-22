@@ -16,6 +16,7 @@ export const Nav = ({ correoUsuario }) => {
                     <li><NavLink exact to='/home' activeClassName='active'>Inicio</NavLink></li>
                     <li><NavLink to='/pacientes' activeClassName='active'>Pacientes</NavLink></li>
                     <li><NavLink to='/turnos' activeClassName='active'>Turnos</NavLink></li>
+                    <li><NavLink to='/usuario' activeClassName='active'>Usuario</NavLink></li>
                     <li>
                         <button className='btnSignOut' onClick={() => signOut(auth)}>
                             <NavLink to='/Login'>Cerrar sesión</NavLink>

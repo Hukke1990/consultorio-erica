@@ -23,6 +23,7 @@ import { GenerarCitas } from './pages/Turnos/Citas/GenerarCitas/GenerarCitas';
 import { VerTurnos } from './pages/Turnos/Citas/verTurnos/VerTurnos';
 import { EditarTurno } from './pages/Turnos/Citas/EditarTurno/EditarTurno';
 import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente';
+import { Usuario } from './pages/Usuario/Usuario';
 
 import './App.css';
 
@@ -74,6 +75,7 @@ function App() {
         <Route path="/turnos/Citas/GenerarCitas" element={<GenerarCitas uidUsuario={usuario?.uid} />} />
         <Route path="/turnos/Citas/verTurnos" element={<VerTurnos uidUsuario={usuario?.uid} />} /> */}
         <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />} />
+        <Route path="/usuario" element={<Usuario />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>
       {usuario && <Footer />}
