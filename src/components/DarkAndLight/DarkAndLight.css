@@ -141,6 +141,11 @@ body.dark-mode a {
   color: #ffffff;
 }
 
+body.dark-mode a:hover {
+  transition: 0.5s;
+  color: #f0a70a;
+}
+
 body.light-mode a {
   transition: 0.5s;
   color: #2b2b2b;
@@ -196,6 +201,14 @@ body.light-mode .contenedor-nav .active {
   color: #98721d;
 }
 
+body.light-mode .btnSignOut a:hover {
+  color: #f00a0a;
+}
+
+body.dark-mode .btnSignOut a:hover {
+  color: #f00a0a;
+}
+
 /* Estilos para Ver Turnos */
 
 body.dark-mode .titulo-mes:hover {
@@ -220,6 +233,24 @@ body.light-mode .titulo-mes.open {
 
 body.light-mode .boton-registro button {
   color: #ffffff;
+}
+
+/* Estilos para Administrador */
+
+body.light-mode .contenedor-menuAdministrador ul li a {
+  color: #000000;
+}
+
+body.light-mode .contenedor-menuAdministrador ul li a:hover {
+  color: #98721d;
+}
+
+body.dark-mode .contenedor-menuAdministrador ul li a {
+  color: #ffffff;
+}
+
+body.dark-mode .contenedor-menuAdministrador ul li a:hover {
+  color: #f0a70a;
 }
 
 /* Puedes seguir añadiendo más estilos específicos para cada modo */

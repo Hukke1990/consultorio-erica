@@ -22,6 +22,7 @@ import { VerTurnos } from './pages/Turnos/Citas/verTurnos/VerTurnos';
 import { EditarTurno } from './pages/Turnos/Citas/EditarTurno/EditarTurno';
 import { DiagnosticoPaciente } from './pages/pacientes/diagnostico/diagnosticoPaciente/DiagnosticoPaciente';
 import { Administrador } from './pages/Administrador/Administrador';
+import { RegistrarUsuario } from './pages/Administrador/RegistrarUsuario/RegistrarUsuario';
 import { Usuario } from './pages/Usuario/Usuario';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import './App.css';
@@ -83,6 +84,7 @@ function App() {
         <Route path='/turnos/citas/editarTurno/:id' element={<EditarTurno uidUsuario={usuario?.uid} />} />
         <Route path="/pacientes/diagnostico/diagnosticoPaciente/:id" element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />} />
         <Route path="/administrador" element={<ProtectedRoute element={Administrador} isAdmin={isAdmin} />} />
+        <Route path="/administrador/registrarUsuario" element={<ProtectedRoute element={RegistrarUsuario} isAdmin={isAdmin} />} />
         <Route path="/usuario" element={<Usuario />} />
         <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
       </Routes>

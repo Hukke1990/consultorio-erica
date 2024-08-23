@@ -1,84 +1,82 @@
 .contenedor-pacientes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* min-height: 91vh; */
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 91vh; */
+  margin-top: 10px;
 }
 
 .padre-pacientes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
-    background-color: #ffffffd3;
-    box-shadow: #000000 0 0 10px;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    width: 100vw;
-    max-width: 800px;
-    height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
+  background-color: #ffffffd3;
+  box-shadow: #000000 0 0 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  width: 100vw;
+  max-width: 800px;
+  min-height: 550px;
 
-    /* text-shadow: #000000 0 0 2px; */
-    color: #3a3a3a;
+  /* text-shadow: #000000 0 0 2px; */
+  color: #3a3a3a;
 }
 
 .padre-titulo {
-    width: 100%;
-    text-align: center;
-    letter-spacing: 5px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 5px;
 }
 
 .titulo {
-    padding: 5px;
+  padding: 5px;
 }
 
 .contenedor-opcionesPacientes ul {
-    display: flex;  
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .contenedor-pacientes ul {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .contenedor-pacientes li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .contenedor-pacientes a {
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-    color: #3a3a3a;
-    font-weight: 400;
-    padding: 0.5rem;
-    cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: #3a3a3a;
+  font-weight: 400;
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
 .contenedor-pacientes a:hover {
-    color: #98721d;
+  color: #98721d;
 }
 
 @media screen and (max-width: 500px) {
+  .contenedor-pacientes {
+    width: 100%;
+    padding: 10px;
+  }
 
-    .contenedor-pacientes {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .padre-pacientes {
-        width: 100%;
-    }
-    
+  .padre-pacientes {
+    width: 100%;
+  }
 }

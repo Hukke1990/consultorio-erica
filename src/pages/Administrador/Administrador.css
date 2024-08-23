@@ -1,0 +1,26 @@
+.contenedor-menuAdministrador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.contenedor-menuAdministrador ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-menuAdministrador ul li {
+  margin: 10px 0;
+}
+
+.contenedor-menuAdministrador ul li a {
+  text-decoration: none;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+}
+
+.contenedor-menuAdministrador ul li a:hover {
+  color: #98721d;
+}
