@@ -184,7 +184,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                         </div>
                     </fieldset>
                     <div className='botones-registro'>
-                        <button type='submit' className='btn-submit'>Registrar</button>
+                        <button type='submit' className='boton-registro'>Registrar</button>
                         <NavLink to='/turnos'><button type="button" className='boton-registro cancelar'>Cancelar</button></NavLink>
                     </div>
                 </form>

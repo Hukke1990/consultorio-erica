@@ -15,6 +15,8 @@ export const Usuario = () => {
     const [message, setMessage] = useState("");
     const [userData, setUserData] = useState({});
     const [showEditAvatar, setShowEditAvatar] = useState(false);
+    const [isEditingAvatar, setIsEditingAvatar] = useState(false);
+
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -86,16 +88,24 @@ export const Usuario = () => {
                     <img
                         src={userData.avatarURL || avatarPreview || defaultAvatar}
                         alt="Avatar"
-                        className='estilo-profile'
+                        className='avatarUsuario'
                     />
-                    <ul>
-                        <li>{userData.nombre} {userData.apellido}</li>
-                        <li>Email: {userData.email}</li>
-                        <li>Rol: {userData.role}</li>
-                    </ul>
-                    <button className='boton-registro' onClick={() => setShowEditAvatar(!showEditAvatar)}>
+                    <div className='contenedor-datos'>
+                        <ul>
+                            <li>Nombre: {userData.nombre}</li>
+                            <li>Apellido: {userData.apellido}</li>
+                        </ul>
+                    </div>
+                    <button
+                        className={`boton-registro botonAvatar ${isEditingAvatar ? 'activo' : ''}`}
+                        onClick={() => {
+                            setShowEditAvatar(!showEditAvatar);
+                            setIsEditingAvatar(!isEditingAvatar); // Alternar estado
+                        }}
+                    >
                         {showEditAvatar ? 'Cerrar Edición' : 'Editar Avatar'}
                     </button>
+
 
                     {showEditAvatar && (
                         <div className='editar-avatar'>
