@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './RegistrarUsuario.css';
 import { NavLink } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import appFirebase from '../../../credenciales';
 
 const auth = getAuth(appFirebase);
@@ -21,9 +21,8 @@ export const RegistrarUsuario = () => {
             // Crear el nuevo usuario
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-            // Agregar usuario a la colección 'users' en Firestore
-            await addDoc(collection(db, 'users'), {
-                uid: userCredential.user.uid,
+            // Agregar usuario a la colección 'users' en Firestore con el uid como ID del documento
+            await setDoc(doc(db, 'users', userCredential.user.uid), {
                 email: email,
                 role: role,
                 nombre: nombre,

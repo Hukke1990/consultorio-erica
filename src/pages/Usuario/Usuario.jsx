@@ -73,6 +73,9 @@ export const Usuario = () => {
         }
     };
 
+    // URL de la imagen genérica
+    const defaultAvatar = 'path_to_generic_avatar.png';
+
     return (
         <div className='contenedor-pacientes'>
             <div className='padre-pacientes'>
@@ -80,7 +83,11 @@ export const Usuario = () => {
                     <h1>Mi Perfil</h1>
                 </div>
                 <fieldset className='fieldset-registro miPerfil'>
-                    <img src={userData.avatarURL || 'default-avatar.png'} alt="Avatar" className='estilo-profile' />
+                    <img
+                        src={userData.avatarURL || avatarPreview || defaultAvatar}
+                        alt="Avatar"
+                        className='estilo-profile'
+                    />
                     <ul>
                         <li>{userData.nombre} {userData.apellido}</li>
                         <li>Email: {userData.email}</li>
@@ -92,9 +99,22 @@ export const Usuario = () => {
 
                     {showEditAvatar && (
                         <div className='editar-avatar'>
-                            <input type="file" onChange={handleFileChange} />
-                            {avatarPreview && <img src={avatarPreview} alt="Avatar Preview" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />}
-                            <button onClick={handleUpload}>Subir Avatar</button>
+                            <input
+                                type="file"
+                                id="file-input"
+                                onChange={handleFileChange}
+                                style={{ display: 'none' }} // Ocultar el botón de archivo
+                            />
+                            <button
+                                onClick={() => document.getElementById('file-input').click()}
+                                className='boton-registro'
+                            >
+                                Seleccionar Archivo
+                            </button>
+                            <div className='avatar-preview'>
+                                {avatarPreview && <img src={avatarPreview} alt="Avatar Preview" />}
+                            </div>
+                            <button className='boton-registro' onClick={handleUpload}>Subir Avatar</button>
                         </div>
                     )}
 
