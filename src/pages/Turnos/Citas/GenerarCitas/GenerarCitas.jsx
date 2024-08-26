@@ -116,7 +116,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                                 value={nombre}
                                 onChange={handleNombreChange}
                                 list='nombres'
-                                placeholder='Escriba o seleccione un nombre...'
+                                placeholder='Nombre'
                                 required
                             />
                             <datalist id='nombres'>
@@ -133,7 +133,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                                 value={apellido}
                                 onChange={handleApellidoChange}
                                 list='apellidos'
-                                placeholder='Escriba o seleccione un apellido...'
+                                placeholder='Apellido'
                                 required
                             />
                             <datalist id='apellidos'>
