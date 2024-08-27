@@ -116,7 +116,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                                 value={nombre}
                                 onChange={handleNombreChange}
                                 list='nombres'
-                                placeholder='Escriba o seleccione un nombre...'
+                                placeholder='Nombre'
                                 required
                             />
                             <datalist id='nombres'>
@@ -133,7 +133,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                                 value={apellido}
                                 onChange={handleApellidoChange}
                                 list='apellidos'
-                                placeholder='Escriba o seleccione un apellido...'
+                                placeholder='Apellido'
                                 required
                             />
                             <datalist id='apellidos'>
@@ -184,7 +184,7 @@ export const GenerarCitas = ({ uidUsuario }) => {
                         </div>
                     </fieldset>
                     <div className='botones-registro'>
-                        <button type='submit' className='btn-submit'>Registrar</button>
+                        <button type='submit' className='boton-registro'>Registrar</button>
                         <NavLink to='/turnos'><button type="button" className='boton-registro cancelar'>Cancelar</button></NavLink>
                     </div>
                 </form>

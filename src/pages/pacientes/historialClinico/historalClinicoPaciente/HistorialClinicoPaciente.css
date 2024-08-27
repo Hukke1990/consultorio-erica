@@ -1,103 +1,100 @@
 .contenedor-historial-clinico-paciente {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* min-height: 91vh; */
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 91vh; */
+  margin-top: 10px;
 }
 
 .padre-historial-clinico-paciente {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
-    background-color: #ffffffd3;
-    box-shadow: #000000 0 0 10px;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    width: 100vw;
-    max-width: 800px;
-    min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
+  background-color: #ffffffd3;
+  box-shadow: #000000 0 0 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  width: 100vw;
+  max-width: 800px;
+  min-height: 550px;
 
-    /* text-shadow: #000000 0 0 2px; */
-    color: #3a3a3a;
+  /* text-shadow: #000000 0 0 2px; */
+  color: #3a3a3a;
 }
 .contenedor-historial-clinico-paciente h2 {
-    width: 100%;
-    text-align: center;
-    padding: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
 }
 
 .contenedor-historial-clinico-paciente p {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .contenedor-historial-clinico-paciente span {
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
 }
 
-
-
 .contenedor-historial-clinico-paciente ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .contenedor-historial-clinico-paciente li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px;
-    width: 100%;
-    list-style: none;
-    border-bottom: #98711d6c 1px solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  list-style: none;
+  border-bottom: #98711d6c 1px solid;
 }
 
 .acciones-paciente {
-    position: relative;
-    top: -2px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  top: -2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .boton-volver {
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-    max-width: 300px;
-    background-color: #343b46;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  background-color: #343b46;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .boton-volver:hover {
-    background-color: #98711d;
+  transition: 0.5s;
+  background-color: #98711d;
 }
 
 @media screen and (max-width: 500px) {
+  .contenedor-historial-clinico-paciente {
+    width: 100%;
+    padding: 10px;
+  }
 
-    .contenedor-historial-clinico-paciente {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .padre-historial-clinico-paciente {
-        width: 100%;
-        padding: 10px;
-    }
-    
+  .padre-historial-clinico-paciente {
+    width: 100%;
+    padding: 10px;
+  }
 }

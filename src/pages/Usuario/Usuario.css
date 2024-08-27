@@ -1,0 +1,112 @@
+:root {
+  --primary-color: #98711d;
+  --secondary-color: #ffffff;
+  --font-family: "Roboto", sans-serif;
+  --avatar-size: 12.5rem; /* 200px */
+  --border-radius-circle: 50%;
+  --border-radius-rounded: 10%;
+  --transition-duration: 0.3s;
+}
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem; /* 20px */
+  font-family: var(--font-family);
+}
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--border-radius-circle);
+  object-fit: cover;
+}
+
+.avatarUsuario {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--border-radius-rounded);
+  object-fit: cover;
+  margin: 0 1.25rem; /* 20px */
+}
+
+.cambio-contrasena {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+}
+
+.miPerfil {
+  border-radius: 0.625rem; /* 10px */
+  padding: 1.25rem; /* 20px */
+  margin: 1.25rem; /* 20px */
+  font-family: var(--font-family);
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2); /* 10px */
+}
+
+.contenedor-datos ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3.125rem; /* 50px */
+}
+
+.editar-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+}
+
+.editar-avatar input[type="file"] {
+  margin-bottom: 0.625rem; /* 10px */
+}
+
+.editar-avatar button {
+  margin-top: 0.625rem; /* 10px */
+}
+
+.avatar-preview {
+  margin-top: 0.625rem; /* 10px */
+}
+
+.avatar-preview img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  object-fit: cover;
+  border-radius: var(--border-radius-rounded);
+  margin-bottom: 0.625rem; /* 10px */
+}
+
+.cambio-contrasena button {
+  margin-top: 0.625rem; /* 10px */
+}
+
+.estilo-profile {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--border-radius-circle);
+  object-fit: cover;
+}
+
+.botonAvatar:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+}
+
+.botonAvatar.activo {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}

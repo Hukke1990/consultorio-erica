@@ -1,0 +1,31 @@
+.listaUsuarios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  border-bottom: #98711d7c 1px solid;
+  width: 100%;
+}
+
+.listaUsuarios span {
+  margin-inline: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.contenedorSpanSpan {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contenedorSpan {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.btnUsuario {
+  position: relative;
+  top: 0px;
+}

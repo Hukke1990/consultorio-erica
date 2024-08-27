@@ -1,109 +1,108 @@
 .contenedor {
-    display: flex;
-    position: absolute;
-    top: 0;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
+  display: flex;
+  position: absolute;
+  top: 0;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .contenedor-login {
-    display: flex;
-    justify-content: center;
-    max-width: 400px;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
 }
 
 .padre {
-    display: flex;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .tamanio-imagen {
-    width: 100%;
-    height: 800px;
-    margin-top: 100px;
+  width: 100%;
+  height: 800px;
+  margin-top: 100px;
 }
 
 .estilo-profile {
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .cajatexto {
-    background-color: #cccccc40;
-    border-color: slategray;
-    border-radius: 30px;
-    width: 100%;
-    padding: 15px;
-    border-width: 0px;
-    margin-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
+  background-color: #cccccc40;
+  border-color: slategray;
+  border-radius: 30px;
+  width: 100%;
+  padding: 15px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
 .cajatexto:focus {
-    transition: 0.2s;
-    outline: 1px solid #0D6EFD;
-    box-shadow: 0 0 10px #0D6EFD;
+  transition: 0.2s;
+  outline: 1px solid #0d6efd;
+  box-shadow: 0 0 10px #0d6efd;
 }
 
 .btnfrom {
-    background-color: #343b46;
-    border-color: slategray;
-    border-radius: 30px;
-    width: 100%;
-    padding: 15px;
-    border-width: 0px;
-    margin-bottom: 20px;
-    color: white;
+  background-color: #343b46;
+  border-color: slategray;
+  border-radius: 30px;
+  width: 100%;
+  padding: 15px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .btnfrom:hover {
-    transition: 0.5s;
-    color: #e7e0c6;
-    background-color: #98721d;
+  transition: 0.5s;
+  color: #e7e0c6;
+  background-color: #98721d;
 }
 
 .card {
-    text-align: center;
-    background-image: url(/fondo-login.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-position-y: -65px;
-    filter: drop-shadow(0 0 0.5rem rgb(0, 0, 0));
+  text-align: center;
+  background-image: url(/fondo-login.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: -40px;
+  filter: drop-shadow(0 0 0.5rem rgb(0, 0, 0));
 }
 
 .card-body {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .texto {
-    font-size: 16px;
-    color: slategray;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 5px;
+  font-size: 16px;
+  color: slategray;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
 }
 
 .btnswitch {
-    background-color: transparent;
-    border-radius: 30px;
-    padding: 8px;
-    border-width: 0px;
-    color: slategray;
-    font-size: 16px;
+  background-color: transparent;
+  border-radius: 30px;
+  padding: 8px;
+  border-width: 0px;
+  color: slategray;
+  font-size: 16px;
 }
 
 .btnswitch:hover {
-    transition: 0.5s;
-    color: #98721d;
-    text-shadow: #e7e0c6 0 0 10px;
+  transition: 0.5s;
+  color: #98721d;
+  text-shadow: #e7e0c6 0 0 10px;
 }
 
 @media screen and (max-width: 500px) {
-    
 }
