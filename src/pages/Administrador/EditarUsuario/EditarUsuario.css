@@ -1,0 +1,22 @@
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkbox label {
+  font-family: "Roboto", sans-serif;
+}
+
+.contenedor-checkbox {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.checkbox-grupo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
