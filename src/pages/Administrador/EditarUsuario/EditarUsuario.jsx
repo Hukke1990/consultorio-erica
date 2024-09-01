@@ -17,6 +17,7 @@ export const EditarUsuario = () => {
   const [modules, setModules] = useState({
     basic: false,
     diagnostic: false,
+    qr: false, // Añadir el módulo de QR
   });
   const navigate = useNavigate();
 
@@ -112,20 +113,20 @@ export const EditarUsuario = () => {
               <label>Módulos:</label>
               <div className="contenedor-checkbox">
                 <div className="checkbox-grupo">
-                  <label>Básico</label>
-                  <input
-                    type="checkbox"
-                    name="basic"
-                    checked={modules.basic}
-                    onChange={handleCheckboxChange}
-                  />
-                </div>
-                <div className="checkbox-grupo">
                   <label>Diagnóstico</label>
                   <input
                     type="checkbox"
                     name="diagnostic"
                     checked={modules.diagnostic}
+                    onChange={handleCheckboxChange}
+                  />
+                </div>
+                <div className="checkbox-grupo">
+                  <label>QR</label>
+                  <input
+                    type="checkbox"
+                    name="qr"
+                    checked={modules.qr}
                     onChange={handleCheckboxChange}
                   />
                 </div>

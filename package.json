@@ -13,6 +13,8 @@
     "-": "^0.0.1",
     "bootstrap-icons": "^1.11.3",
     "firebase": "^10.12.5",
+    "qrcode": "^1.5.4",
+    "qrcode.react": "^4.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0"
