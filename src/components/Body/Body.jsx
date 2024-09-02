@@ -85,12 +85,16 @@ export const Body = ({ uidUsuario }) => {
               <div className="turnosProximos">
                 <ul>
                   <li className="noticias">
-                    Ahora se permite editar/eliminar los turnos{" "}
-                    <span>(Nuevo)</span>
+                    Ahora se permite editar/eliminar los turnos (Nuevo)
                   </li>
                   <li className="noticias">
                     Ahora se permite editar/eliminar el Historial clinico de
-                    cada paciente <span>(Nuevo)</span>
+                    cada paciente (Nuevo)
+                  </li>
+                  <li className="noticias">
+                    Se agrego la opcion de generar un QR para que el paciente
+                    pueda escanear y asi registrar el turno en su telefono mobil
+                    (opcion de pago) (Nuevo)
                   </li>
                 </ul>
               </div>

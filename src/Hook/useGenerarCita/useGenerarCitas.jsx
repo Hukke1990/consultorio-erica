@@ -109,13 +109,17 @@ END:VCALENDAR
         `.trim();
 
         // Generar el código QR
-        toDataURL(icsData, { width: 200, margin: 2 }, (err, url) => {
-          if (err) {
-            console.error("Error al generar el código QR:", err);
-            return;
+        toDataURL(
+          `data:text/calendar;charset=utf8,${encodeURIComponent(icsData)}`,
+          { width: 200, margin: 2 },
+          (err, url) => {
+            if (err) {
+              console.error("Error al generar el código QR:", err);
+              return;
+            }
+            setQrCodeUrl(url);
           }
-          setQrCodeUrl(url);
-        });
+        );
       }
 
       // Limpiar los campos del formulario
