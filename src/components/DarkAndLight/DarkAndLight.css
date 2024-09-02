@@ -219,6 +219,10 @@ body.dark-mode .btnSignOut a:hover {
     backdrop-filter: blur(10px);
     background-color: #15113df5;
   }
+
+  body.dark-mode .hamburger {
+    color: #ffffff;
+  }
 }
 
 /* Estilos para Ver Turnos */
