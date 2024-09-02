@@ -1,124 +1,126 @@
 .contenedor-turnos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* min-height: 91vh; */
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 91vh; */
+  margin-top: 10px;
 }
 
 .padre-GenerarTurnos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
-    background-color: #ffffffd3;
-    box-shadow: #000000 0 0 10px;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    width: 100vw;
-    max-width: 800px;
-    min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* background: linear-gradient(180deg, #2d4a7548 0%, #ffffff41 100%); */
+  background-color: #ffffffd3;
+  box-shadow: #000000 0 0 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  width: 100vw;
+  max-width: 800px;
+  min-height: 550px;
 
-    /* text-shadow: #000000 0 0 2px; */
-    color: #3a3a3a;
+  /* text-shadow: #000000 0 0 2px; */
+  color: #3a3a3a;
 }
 
 .fieldset-turnos {
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    padding: 10px;
-    /* border: #98721d 2px solid; */
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px;
+  /* border: #98721d 2px solid; */
 }
 
 .campo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
 }
 
 .ocupado {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .ocupado p {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    margin-left: 80px;
-    padding: 0;
-    text-align: center;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  margin-left: 80px;
+  padding: 0;
+  text-align: center;
 }
 
 .campo label {
-    font-family: 'Rboto', sans-serif;
-    font-weight: 400;
-    width: 100px;
+  font-family: "Rboto", sans-serif;
+  font-weight: 400;
+  width: 100px;
 }
 
 .campo input,
 .campo textarea {
-    font-family: 'Rboto', sans-serif;
-    font-weight: 400;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-    border: #98721d 1px solid;
-    border-radius: 5px;
+  font-family: "Rboto", sans-serif;
+  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  border: #98721d 1px solid;
+  border-radius: 5px;
 }
 
 .campo input:focus,
 .campo textarea:focus {
-    transition: 0.2s;
-    outline: #0356f0 1px solid;
-    box-shadow: 0 0 5px #063b9e;
+  transition: 0.2s;
+  outline: #0356f0 1px solid;
+  box-shadow: 0 0 5px #063b9e;
 }
 
 .campo textarea {
-    min-height: 100px;
+  min-height: 100px;
 }
 
 .form-turnos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .form-turnos .btn-submit {
-    background-color: #343b46;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #343b46;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .form-turnos .btn-submit:hover {
-    background-color: #98721d;
+  background-color: #98721d;
 }
 
 @media screen and (max-width: 500px) {
+  .contenedor-turnos {
+    width: 100%;
+    padding: 10px;
+  }
 
-    .contenedor-turnos {
-        width: 100%;
-        padding: 10px;
-    }
+  .padre-GenerarTurnos {
+    width: 100%;
+    padding: 10px;
+  }
 
-    .padre-GenerarTurnos {
-        width: 100%;
-        padding: 10px;
-    }
+  .campo input,
+  .campo textarea {
+    width: 300px;
+  }
+}
 
-    .campo input,
-    .campo textarea {
-        width: 300px;
-    }
-    
+.qr-container img {
+  margin-bottom: 10px;
 }
