@@ -209,14 +209,16 @@ body.dark-mode .btnSignOut a:hover {
   color: #f00a0a;
 }
 
-body.light-mode .padre-nav {
-  backdrop-filter: blur(10px);
-  background-color: #fffffff5;
-}
+@media screen and (max-width: 500px) {
+  body.light-mode .padre-nav {
+    backdrop-filter: blur(10px);
+    background-color: #fffffff5;
+  }
 
-body.dark-mode .padre-nav {
-  backdrop-filter: blur(10px);
-  background-color: #15113df5;
+  body.dark-mode .padre-nav {
+    backdrop-filter: blur(10px);
+    background-color: #15113df5;
+  }
 }
 
 /* Estilos para Ver Turnos */
