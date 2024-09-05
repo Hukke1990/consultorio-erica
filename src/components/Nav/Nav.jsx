@@ -24,6 +24,10 @@ export const Nav = ({ correoUsuario, isAdmin }) => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`contenedor-nav nav ${menuOpen ? "open" : ""}`}>
       <button className="hamburger" onClick={toggleMenu}>
@@ -32,35 +36,48 @@ export const Nav = ({ correoUsuario, isAdmin }) => {
       <div className={`padre-nav ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <NavLink to="/home" activeClassName="active">
+            <NavLink to="/home" activeClassName="active" onClick={closeMenu}>
               Inicio
             </NavLink>
           </li>
           <li>
-            <NavLink to="/pacientes" activeClassName="active">
+            <NavLink
+              to="/pacientes"
+              activeClassName="active"
+              onClick={closeMenu}
+            >
               Pacientes
             </NavLink>
           </li>
           <li>
-            <NavLink to="/turnos" activeClassName="active">
+            <NavLink to="/turnos" activeClassName="active" onClick={closeMenu}>
               Turnos
             </NavLink>
           </li>
           <li>
-            <NavLink to="/usuario" activeClassName="active">
+            <NavLink to="/usuario" activeClassName="active" onClick={closeMenu}>
               Usuario
             </NavLink>
           </li>
           {isAdmin && (
             <li>
-              <NavLink to="/administrador" activeClassName="active">
+              <NavLink
+                to="/administrador"
+                activeClassName="active"
+                onClick={closeMenu}
+              >
                 Administrador
               </NavLink>
             </li>
-          )}{" "}
-          {/* Enlace condicional */}
+          )}
           <li>
-            <button className="btnSignOut" onClick={() => signOut(auth)}>
+            <button
+              className="btnSignOut"
+              onClick={() => {
+                signOut(auth);
+                closeMenu();
+              }}
+            >
               <NavLink to="/Login">Cerrar sesión</NavLink>
             </button>
           </li>
