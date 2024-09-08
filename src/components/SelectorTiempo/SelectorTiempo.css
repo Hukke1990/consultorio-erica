@@ -1,0 +1,10 @@
+.selector-tiempo select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.selector-tiempo option.ocupado {
+  background-color: rgb(151, 1, 1);
+  color: #ffffff;
+}

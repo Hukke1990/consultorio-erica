@@ -1,0 +1,72 @@
+.calendario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.header button {
+  background-color: rgb(67, 67, 67);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  transition: 0.5s;
+  background-color: #98721d;
+}
+
+.header .selectorMes {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.day,
+.day-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+
+.day {
+  background-color: #f0f0f0;
+}
+
+.day.ocupado {
+  background-color: rgb(151, 1, 1);
+  color: white;
+}
+
+.day.selected {
+  background-color: rgb(67, 67, 67);
+  color: white;
+}
+
+.day.empty {
+  background-color: transparent;
+  cursor: default;
+}

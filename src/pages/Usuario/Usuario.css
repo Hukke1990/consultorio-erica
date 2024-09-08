@@ -1,13 +1,3 @@
-:root {
-  --primary-color: #98711d;
-  --secondary-color: #ffffff;
-  --font-family: "Roboto", sans-serif;
-  --avatar-size: 12.5rem; /* 200px */
-  --border-radius-circle: 50%;
-  --border-radius-rounded: 10%;
-  --transition-duration: 0.3s;
-}
-
 .avatar-container {
   display: flex;
   flex-direction: column;
@@ -100,13 +90,13 @@
 
 .botonAvatar:hover {
   cursor: pointer;
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
+  color: var(--color-secundario-dark);
+  background-color: var(--color-primario-ligh);
   transition: background-color var(--transition-duration),
     color var(--transition-duration);
 }
 
 .botonAvatar.activo {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--color-primario-ligh);
+  color: var(--color-secundario-dark);
 }

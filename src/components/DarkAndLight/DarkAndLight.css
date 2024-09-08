@@ -245,6 +245,36 @@ body.light-mode .titulo-mes.open {
   color: #98721d;
 }
 
+body.dark-mode .day {
+  background-color: #15113d;
+  color: #ffffff;
+}
+
+body.dark-mode .day.ocupado {
+  background-color: #970101;
+  color: #ffffff;
+}
+
+body.dark-mode .day.selected {
+  background-color: #f0a70a;
+  color: white;
+}
+
+body.light-mode .day {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+body.light-mode .day.ocupado {
+  background-color: #970101;
+  color: #ffffff;
+}
+
+body.light-mode .day.selected {
+  background-color: #98721d;
+  color: white;
+}
+
 /* Estilos para Diagnoscio */
 
 body.light-mode .boton-registro button {
