@@ -232,17 +232,17 @@ export const GenerarCitas = ({ uidUsuario }) => {
               ></textarea>
             </div>
           </fieldset>
+          <div className="botones-registro">
+            <button type="submit" className="boton-registro">
+              Registrar
+            </button>
+            <NavLink to="/turnos">
+              <button type="button" className="boton-registro cancelar">
+                Cancelar
+              </button>
+            </NavLink>
+          </div>
         </form>
-      </div>
-      <div className="botones-registro">
-        <button type="submit" className="boton-registro">
-          Registrar
-        </button>
-        <NavLink to="/turnos">
-          <button type="button" className="boton-registro cancelar">
-            Cancelar
-          </button>
-        </NavLink>
       </div>
       {qrCodeUrl && (
         <div className="qr-code">
