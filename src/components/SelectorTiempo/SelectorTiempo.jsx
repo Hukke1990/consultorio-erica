@@ -7,8 +7,8 @@ const SelectorTiempo = ({ hora, setHora, turnos, fecha }) => {
   );
   const minutos = ["00", "30"];
 
-  const isTurnoOcupado = (horaSeleccionada) => {
-    return turnos.some(
+  const getTurnoInfo = (horaSeleccionada) => {
+    return turnos.find(
       (turno) => turno.fecha === fecha && turno.hora === horaSeleccionada
     );
   };
@@ -23,7 +23,8 @@ const SelectorTiempo = ({ hora, setHora, turnos, fecha }) => {
         {horas.map((h) =>
           minutos.map((m) => {
             const horaCompleta = `${h}:${m}`;
-            const ocupado = isTurnoOcupado(horaCompleta);
+            const turnoInfo = getTurnoInfo(horaCompleta);
+            const ocupado = turnoInfo !== undefined;
             return (
               <option
                 key={horaCompleta}
@@ -31,6 +32,7 @@ const SelectorTiempo = ({ hora, setHora, turnos, fecha }) => {
                 className={ocupado ? "ocupado" : ""}
               >
                 {horaCompleta}
+                {ocupado && ` - ${turnoInfo.nombre} ${turnoInfo.apellido}`}
               </option>
             );
           })

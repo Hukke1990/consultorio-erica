@@ -12,7 +12,13 @@
   font-family: "Roboto", sans-serif;
 }
 
+.ocupado .SelectorTiempo {
+  margin-top: 10px;
+  width: 300px;
+}
+
 .registros textarea {
+  margin-top: 10px;
   width: 100%;
   min-height: 100px;
 }
