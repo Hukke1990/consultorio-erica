@@ -207,12 +207,14 @@ export const GenerarCitas = ({ uidUsuario }) => {
             <div className="ocupado">
               <div className="registros">
                 <label>Hora</label>
-                <SelectorTiempo
-                  hora={hora}
-                  setHora={setHora}
-                  turnos={turnos}
-                  fecha={fecha}
-                />
+                <div className="SelectorTiempo">
+                  <SelectorTiempo
+                    hora={hora}
+                    setHora={setHora}
+                    turnos={turnos}
+                    fecha={fecha}
+                  />
+                </div>
               </div>
               {turnoNoDisponible && (
                 <p style={{ color: "red", fontSize: "0.9rem" }}>
