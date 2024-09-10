@@ -17,8 +17,9 @@ const Calendario = ({ fecha, setFecha, turnos }) => {
   };
 
   const isTurnoOcupado = (date) => {
-    const formattedDate = formatDate(date); // Formateamos la fecha localmente
-    return turnos.some((turno) => turno.fecha === formattedDate); // Comparación exacta
+    const formattedDate = formatDate(date);
+    console.log("Verificando si el turno está ocupado en:", formattedDate); // Debugging
+    return turnos.some((turno) => turno.fecha === formattedDate);
   };
 
   const handleDayClick = (day) => {
@@ -27,7 +28,9 @@ const Calendario = ({ fecha, setFecha, turnos }) => {
       currentDate.getMonth(),
       day
     );
-    setFecha(formatDate(selectedDate)); // Usamos el formato local
+    const formattedSelectedDate = formatDate(selectedDate);
+    console.log("Fecha seleccionada:", formattedSelectedDate); // Debugging
+    setFecha(formattedSelectedDate); // Usamos el formato local
   };
 
   const renderDays = () => {
@@ -54,7 +57,7 @@ const Calendario = ({ fecha, setFecha, turnos }) => {
         currentDate.getMonth(),
         day
       );
-      const isOcupado = isTurnoOcupado(date); // Chequeamos si el turno está ocupado
+      const isOcupado = isTurnoOcupado(date);
       days.push(
         <div
           key={day}

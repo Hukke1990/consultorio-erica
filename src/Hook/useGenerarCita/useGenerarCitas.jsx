@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 import { toDataURL } from "qrcode";
 import appFirebase from "../../credenciales";
-import useUserModules from "../useModulos/useModules";
+import useUserModules from "../../Hook/useModulos/useModules";
+import Calendario from "../../components/Calendario/Calendario";
+import SelectorTiempo from "../../components/SelectorTiempo/SelectorTiempo";
+import { NavLink } from "react-router-dom";
 
 const db = getFirestore(appFirebase);
 
