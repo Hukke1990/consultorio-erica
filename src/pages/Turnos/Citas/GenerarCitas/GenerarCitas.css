@@ -21,6 +21,21 @@
   margin-top: 10px;
   width: 100%;
   min-height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  color: #444444;
+}
+
+.registros textarea:focus {
+  border-color: #151c6c;
+  box-shadow: 0 0 8px #151c6c;
+  outline: none;
 }
 
 @media screen and (max-width: 500px) {
@@ -36,7 +51,7 @@
 
   .campo input,
   .campo textarea {
-    width: 300px;
+    width: 100%;
   }
 }
 

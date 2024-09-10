@@ -1,10 +1,33 @@
 .selector-tiempo select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  color: #444444;
+}
+
+.selector-tiempo select:focus {
+  border-color: #98721d;
+  box-shadow: 0 0 8px rgba(152, 114, 29, 0.5);
+  outline: none;
+}
+
+.selector-tiempo option {
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
 .selector-tiempo option.ocupado {
   background-color: rgb(151, 1, 1);
   color: #ffffff;
+}
+
+.selector-tiempo option:not(.ocupado):hover {
+  background-color: #f0f0f0;
 }
