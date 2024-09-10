@@ -1,15 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Calendario.css";
 
 const Calendario = ({ fecha, setFecha, turnos }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (year, month) => {
-    return new Date(year, month + 1, 0).getDate();
+    return new Date(year, month + 1, 0).getDate(); // Número de días en el mes actual
+  };
+
+  // Función para formatear la fecha en YYYY-MM-DD sin UTC
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   };
 
   const isTurnoOcupado = (date) => {
-    const formattedDate = date.toISOString().split("T")[0];
+    const formattedDate = formatDate(date);
+    console.log("Verificando si el turno está ocupado en:", formattedDate); // Debugging
     return turnos.some((turno) => turno.fecha === formattedDate);
   };
 
@@ -19,7 +28,9 @@ const Calendario = ({ fecha, setFecha, turnos }) => {
       currentDate.getMonth(),
       day
     );
-    setFecha(selectedDate.toISOString().split("T")[0]);
+    const formattedSelectedDate = formatDate(selectedDate);
+    console.log("Fecha seleccionada:", formattedSelectedDate); // Debugging
+    setFecha(formattedSelectedDate); // Usamos el formato local
   };
 
   const renderDays = () => {
@@ -34,10 +45,12 @@ const Calendario = ({ fecha, setFecha, turnos }) => {
     ).getDay();
     const days = [];
 
+    // Agregamos los días vacíos antes del primer día del mes
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(<div key={`empty-${i}`} className="day empty"></div>);
     }
 
+    // Renderizamos los días reales del mes
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(
         currentDate.getFullYear(),
@@ -49,7 +62,7 @@ const Calendario = ({ fecha, setFecha, turnos }) => {
         <div
           key={day}
           className={`day ${isOcupado ? "ocupado" : ""} ${
-            fecha === date.toISOString().split("T")[0] ? "selected" : ""
+            fecha === formatDate(date) ? "selected" : ""
           }`}
           onClick={() => handleDayClick(day)}
         >

@@ -5,32 +5,38 @@
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 10px;
 }
 
 .header button {
-  background-color: rgb(67, 67, 67);
+  background-color: #444444;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 8px 12px;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .header button:hover {
-  transition: 0.5s;
   background-color: #98721d;
 }
 
@@ -38,6 +44,8 @@
   display: flex;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #444444;
 }
 
 .day,
@@ -50,23 +58,27 @@
   border-radius: 5px;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .day {
   background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .day.ocupado {
-  background-color: rgb(151, 1, 1);
+  background-color: #970101;
   color: white;
 }
 
 .day.selected {
-  background-color: rgb(67, 67, 67);
+  background-color: #444444;
   color: white;
 }
 
 .day.empty {
   background-color: transparent;
   cursor: default;
+  box-shadow: none;
 }
