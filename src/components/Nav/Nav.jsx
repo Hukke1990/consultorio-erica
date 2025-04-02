@@ -1,15 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Nav.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import appFirebase from "../../../src/credenciales.js";
 import { getAuth, signOut } from "firebase/auth";
 import { DarkAndLight } from "../DarkAndLight/DarkAndLight.jsx";
+import { IdiomaContext } from "../IdiomaContext/IdiomaContext.jsx";
 
 const auth = getAuth(appFirebase);
 
 export const Nav = ({ correoUsuario, isAdmin }) => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { idioma, setIdioma } = useContext(IdiomaContext); // Obtener y establecer el idioma del contexto
+
+  const textos = {
+    es: {
+      inicio: "Inicio",
+      pacientes: "Pacientes",
+      turnos: "Turnos",
+      usuario: "Usuario",
+      administrador: "Administrador",
+      cerrarSesion: "Cerrar sesión",
+    },
+    en: {
+      inicio: "Home",
+      pacientes: "Patients",
+      turnos: "Appointments",
+      usuario: "User",
+      administrador: "Admin",
+      cerrarSesion: "Log Out",
+    },
+  };
 
   const handleSignOut = async () => {
     try {
@@ -37,7 +58,7 @@ export const Nav = ({ correoUsuario, isAdmin }) => {
         <ul>
           <li>
             <NavLink to="/home" activeClassName="active" onClick={closeMenu}>
-              Inicio
+              {textos[idioma].inicio}
             </NavLink>
           </li>
           <li>
@@ -46,17 +67,17 @@ export const Nav = ({ correoUsuario, isAdmin }) => {
               activeClassName="active"
               onClick={closeMenu}
             >
-              Pacientes
+              {textos[idioma].pacientes}
             </NavLink>
           </li>
           <li>
             <NavLink to="/turnos" activeClassName="active" onClick={closeMenu}>
-              Turnos
+              {textos[idioma].turnos}
             </NavLink>
           </li>
           <li>
             <NavLink to="/usuario" activeClassName="active" onClick={closeMenu}>
-              Usuario
+              {textos[idioma].usuario}
             </NavLink>
           </li>
           {isAdmin && (
@@ -66,7 +87,7 @@ export const Nav = ({ correoUsuario, isAdmin }) => {
                 activeClassName="active"
                 onClick={closeMenu}
               >
-                Administrador
+                {textos[idioma].administrador}
               </NavLink>
             </li>
           )}
@@ -78,7 +99,7 @@ export const Nav = ({ correoUsuario, isAdmin }) => {
                 closeMenu();
               }}
             >
-              <NavLink to="/Login">Cerrar sesión</NavLink>
+              <NavLink to="/Login">{textos[idioma].cerrarSesion}</NavLink>
             </button>
           </li>
           <div className="position">

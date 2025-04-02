@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom"; // Importa useParams
 import {
   getFirestore,
@@ -10,6 +10,7 @@ import {
 import appFirebase from "../../../../../src/credenciales";
 import "./DiagnosticoPaciente.css";
 import useUserModules from "../../../../Hook/useModulos/useModules";
+import { IdiomaContext } from "../../../../components/IdiomaContext/IdiomaContext";
 
 const db = getFirestore(appFirebase);
 
@@ -20,6 +21,7 @@ export const DiagnosticoPaciente = ({ uidUsuario }) => {
   const [imagenes, setImagenes] = useState([]); // Cambiado a un array de archivos
   const navigate = useNavigate();
   const modules = useUserModules(uidUsuario);
+  const { idioma } = useContext(IdiomaContext); // Obtener el idioma del contexto
 
   const calcularEdad = (fechaNacimiento) => {
     const hoy = new Date();
@@ -95,52 +97,88 @@ export const DiagnosticoPaciente = ({ uidUsuario }) => {
     }
   };
 
+  const textos = {
+    es: {
+      diagnostico: "Diagnostico",
+      fechaRegistro: "Fecha de registro",
+      nombre: "Nombre",
+      apellido: "Apellido",
+      dni: "DNI",
+      edad: "Edad",
+      diagnosticoPlaceholder: "Escriba el diagnóstico aquí...",
+      agregarImagenes: "Agregar Imágenes",
+      guardar: "Guardar",
+      cancelar: "Cancelar",
+      anos: "años",
+    },
+    en: {
+      diagnostico: "Diagnosis",
+      fechaRegistro: "Registration Date",
+      nombre: "First Name",
+      apellido: "Last Name",
+      dni: "ID",
+      edad: "Age",
+      diagnosticoPlaceholder: "Write the diagnosis here...",
+      agregarImagenes: "Add Images",
+      guardar: "Save",
+      cancelar: "Cancel",
+      anos: "years",
+    },
+  };
+
   return (
     <div className="contenedor-diagnosticoPaciente">
       <div className="padre-diagnosticoPaciente">
         {paciente && (
           <>
-            <h1>Diagnostico</h1>
+            <h1>{textos[idioma].diagnostico}</h1>
             <div className="datosPacientes">
               <p>
-                <span>Fecha de registro:</span>{" "}
+                <span>{textos[idioma].fechaRegistro}:</span>{" "}
                 {new Date().toLocaleDateString()}
               </p>
               <p>
-                <span>Nombre:</span> {capitalize(paciente.nombre)}
+                <span>{textos[idioma].nombre}:</span>{" "}
+                {capitalize(paciente.nombre)}
               </p>
               <p>
-                <span>Apellido:</span> {capitalize(paciente.apellido)}
+                <span>{textos[idioma].apellido}:</span>{" "}
+                {capitalize(paciente.apellido)}
               </p>
               <p>
-                <span>DNI:</span> {paciente.dni}
+                <span>{textos[idioma].dni}:</span> {paciente.dni}
               </p>
               <p>
-                <span>Edad:</span> {paciente.edad} años
+                <span>{textos[idioma].edad}:</span> {paciente.edad}{" "}
+                {textos[idioma].anos}
               </p>
             </div>
 
             <div className="contenedor-formDiagnostico">
               <form onSubmit={handleSubmit}>
-                <label htmlFor="diagnostico">Diagnóstico</label>
+                <label htmlFor="diagnostico">
+                  {textos[idioma].diagnostico}
+                </label>
                 <textarea
                   value={diagnostico}
                   onChange={(e) => setDiagnostico(e.target.value)}
-                  placeholder="Escriba el diagnóstico aquí..."
+                  placeholder={textos[idioma].diagnosticoPlaceholder}
                 ></textarea>
                 {modules.diagnostic && (
                   <>
-                    <label htmlFor="imagen">Agregar Imágenes</label>
+                    <label htmlFor="imagen">
+                      {textos[idioma].agregarImagenes}
+                    </label>
                     <input type="file" multiple onChange={handleFileChange} />
                   </>
                 )}
                 <div className="botones-registro">
                   <button className="boton-registro" type="submit">
-                    Guardar
+                    {textos[idioma].guardar}
                   </button>
                   <NavLink to="/pacientes/diagnostico">
                     <button className="boton-registro cancelar" type="button">
-                      Cancelar
+                      {textos[idioma].cancelar}
                     </button>
                   </NavLink>
                 </div>

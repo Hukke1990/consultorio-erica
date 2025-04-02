@@ -1,179 +1,236 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import useRegistro from "../../../Hook/useRegistrarUsuario/useRegistro";
 import "./Registro.css";
+import { IdiomaContext } from "../../../components/IdiomaContext/IdiomaContext";
 
 export const Registro = ({ uidUsuario }) => {
   const { formValues, mensajeExito, handleChange, handleSubmit } =
     useRegistro(uidUsuario);
+  const { idioma } = useContext(IdiomaContext); // Obtener el idioma del contexto
+
+  const textos = {
+    es: {
+      registrarPaciente: "Registrar paciente",
+      nombre: "Nombre",
+      segundoNombre: "Segundo nombre (Opcional)",
+      apellido: "Apellido",
+      segundoApellido: "Segundo apellido (Opcional)",
+      fechaNacimiento: "Fecha de Nacimiento",
+      sexo: "Sexo",
+      masculino: "Masculino",
+      femenino: "Femenino",
+      obraSocial: "Obra Social",
+      plan: "Plan",
+      carnet: "Carnet",
+      dni: "D.N.I",
+      provincia: "Provincia",
+      ciudad: "Ciudad",
+      direccion: "Dirección",
+      telefono: "Telefono",
+      email: "Email",
+      registrar: "Registrar",
+      cancelar: "Cancelar",
+      mensajeExito: `Paciente ${formValues.nombre} ${formValues.apellido} registrado con éxito`,
+    },
+    en: {
+      registrarPaciente: "Register patient",
+      nombre: "First Name",
+      segundoNombre: "Middle Name (Optional)",
+      apellido: "Last Name",
+      segundoApellido: "Second Last Name (Optional)",
+      fechaNacimiento: "Date of Birth",
+      sexo: "Gender",
+      masculino: "Male",
+      femenino: "Female",
+      obraSocial: "Health Insurance",
+      plan: "Plan",
+      carnet: "Card",
+      dni: "ID",
+      provincia: "State",
+      ciudad: "City",
+      direccion: "Address",
+      telefono: "Phone",
+      email: "Email",
+      registrar: "Register",
+      cancelar: "Cancel",
+      mensajeExito: `Patient ${formValues.nombre} ${formValues.apellido} registered successfully`,
+    },
+  };
 
   return (
     <div className="contenedor-registro">
       <div className="padre-registro">
-        <h1>Registrar paciente</h1>
+        <h1>{textos[idioma].registrarPaciente}</h1>
         <form className="form-registro" onSubmit={handleSubmit}>
           <fieldset className="fieldset-registro">
             <div className="inputs-registro">
               <div className="registros">
-                <label htmlFor="nombre">Nombre</label>
+                <label htmlFor="nombre">{textos[idioma].nombre}</label>
                 <input
                   type="text"
                   name="nombre"
-                  placeholder="Nombre"
+                  placeholder={textos[idioma].nombre}
                   value={formValues.nombre}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="nombre">Segundo nombre</label>
+                <label htmlFor="segundoNombre">
+                  {textos[idioma].segundoNombre}
+                </label>
                 <input
                   type="text"
                   name="segundoNombre"
-                  placeholder="Segundo nombre (Opcional)"
+                  placeholder={textos[idioma].segundoNombre}
                   value={formValues.segundoNombre}
                   onChange={handleChange}
                 />
               </div>
               <div className="registros">
-                <label htmlFor="apellido">Apellido</label>
+                <label htmlFor="apellido">{textos[idioma].apellido}</label>
                 <input
                   type="text"
                   name="apellido"
-                  placeholder="Apellido"
+                  placeholder={textos[idioma].apellido}
                   value={formValues.apellido}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="apellido">Segundo apellido</label>
+                <label htmlFor="segundoApellido">
+                  {textos[idioma].segundoApellido}
+                </label>
                 <input
                   type="text"
                   name="segundoApellido"
-                  placeholder="Segundo apellido (Opcional)"
+                  placeholder={textos[idioma].segundoApellido}
                   value={formValues.segundoApellido}
                   onChange={handleChange}
                 />
               </div>
               <div className="registros">
-                <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
+                <label htmlFor="fechaNacimiento">
+                  {textos[idioma].fechaNacimiento}
+                </label>
                 <input
                   type="date"
                   name="fechaNacimiento"
-                  placeholder="Fecha de Nacimiento"
+                  placeholder={textos[idioma].fechaNacimiento}
                   value={formValues.fechaNacimiento}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="sexo">Sexo</label>
+                <label htmlFor="sexo">{textos[idioma].sexo}</label>
                 <select
                   name="sexo"
                   value={formValues.sexo}
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Seleccione una opción</option>
-                  <option value="Masculino">Masculino</option>
-                  <option value="Femenino">Femenino</option>
+                  <option value="">{textos[idioma].sexo}</option>
+                  <option value="Masculino">{textos[idioma].masculino}</option>
+                  <option value="Femenino">{textos[idioma].femenino}</option>
                 </select>
               </div>
               <div className="registros">
-                <label htmlFor="obraSocial">Obra Social</label>
+                <label htmlFor="obraSocial">{textos[idioma].obraSocial}</label>
                 <input
                   type="text"
                   name="obraSocial"
-                  placeholder="Obra Social"
+                  placeholder={textos[idioma].obraSocial}
                   value={formValues.obraSocial}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="plan">Plan</label>
+                <label htmlFor="plan">{textos[idioma].plan}</label>
                 <input
                   type="text"
                   name="plan"
-                  placeholder="Plan"
+                  placeholder={textos[idioma].plan}
                   value={formValues.plan}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="carnet">Carnet</label>
+                <label htmlFor="carnet">{textos[idioma].carnet}</label>
                 <input
                   type="text"
                   name="carnet"
-                  placeholder="Carnet"
+                  placeholder={textos[idioma].carnet}
                   value={formValues.carnet}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="dni">DNI</label>
+                <label htmlFor="dni">{textos[idioma].dni}</label>
                 <input
                   type="text"
                   name="dni"
-                  placeholder="D.N.I"
+                  placeholder={textos[idioma].dni}
                   value={formValues.dni}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="provincia">Provincia</label>
+                <label htmlFor="provincia">{textos[idioma].provincia}</label>
                 <input
                   type="text"
                   name="provincia"
-                  placeholder="Provincia"
+                  placeholder={textos[idioma].provincia}
                   value={formValues.provincia}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="ciudad">Ciudad</label>
+                <label htmlFor="ciudad">{textos[idioma].ciudad}</label>
                 <input
                   type="text"
                   name="ciudad"
-                  placeholder="Ciudad"
+                  placeholder={textos[idioma].ciudad}
                   value={formValues.ciudad}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="direccion">Dirección</label>
+                <label htmlFor="direccion">{textos[idioma].direccion}</label>
                 <input
                   type="text"
                   name="direccion"
-                  placeholder="Direccion"
+                  placeholder={textos[idioma].direccion}
                   value={formValues.direccion}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="telefono">Telefono</label>
+                <label htmlFor="telefono">{textos[idioma].telefono}</label>
                 <input
                   type="text"
                   name="telefono"
-                  placeholder="Telefono"
+                  placeholder={textos[idioma].telefono}
                   value={formValues.telefono}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="registros">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{textos[idioma].email}</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder={textos[idioma].email}
                   value={formValues.email}
                   onChange={handleChange}
                   required
@@ -183,18 +240,18 @@ export const Registro = ({ uidUsuario }) => {
           </fieldset>
           <div className="botones-registro">
             <button type="submit" className="boton-registro">
-              Registrar
+              {textos[idioma].registrar}
             </button>
             <NavLink to="/pacientes">
               <button type="button" className="boton-registro cancelar">
-                Cancelar
+                {textos[idioma].cancelar}
               </button>
             </NavLink>
           </div>
         </form>
         {mensajeExito && (
           <div className="mensaje-exito">
-            <p>{mensajeExito}</p>
+            <p>{textos[idioma].mensajeExito}</p>
           </div>
         )}
       </div>

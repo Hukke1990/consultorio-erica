@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import usePacientes from "../../../Hook/usePacientes/UsePacientes";
 import "./VerPacientes.css";
+import { IdiomaContext } from "../../../components/IdiomaContext/IdiomaContext";
 
 export const VerPacientes = ({ uidUsuario }) => {
   const [filtroNombre, setFiltroNombre] = useState("");
@@ -12,6 +13,34 @@ export const VerPacientes = ({ uidUsuario }) => {
     filtroNombre,
     filtroApellido
   );
+  const { idioma } = useContext(IdiomaContext); // Obtener el idioma del contexto
+
+  const textos = {
+    es: {
+      verPacientes: "Ver Pacientes",
+      buscarPacientes: "Buscar pacientes",
+      nombre: "Nombre",
+      filtrarNombre: "Filtrar por nombre",
+      apellido: "Apellido",
+      filtrarApellido: "Filtrar por apellido",
+      editar: "Editar",
+      borrar: "Borrar",
+      noPacientes: "No se encontraron pacientes.",
+      volver: "Volver",
+    },
+    en: {
+      verPacientes: "View Patients",
+      buscarPacientes: "Search patients",
+      nombre: "First Name",
+      filtrarNombre: "Filter by first name",
+      apellido: "Last Name",
+      filtrarApellido: "Filter by last name",
+      editar: "Edit",
+      borrar: "Delete",
+      noPacientes: "No patients found.",
+      volver: "Back",
+    },
+  };
 
   const editarPaciente = (id) => {
     navigate(`/pacientes/verPacientes/editarPaciente/${id}`);
@@ -21,26 +50,26 @@ export const VerPacientes = ({ uidUsuario }) => {
     <div className="contenedor-pacientes">
       <div className="padre-pacientes">
         <div className="padre-titulo titulo">
-          <h1>Ver Pacientes</h1>
+          <h1>{textos[idioma].verPacientes}</h1>
         </div>
 
         <div className="filtros">
-          <h3>Buscar pacientes</h3>
+          <h3>{textos[idioma].buscarPacientes}</h3>
           <div className="contenedor-filtros">
             <div className="filtro-input">
-              <label>Nombre:</label>
+              <label>{textos[idioma].nombre}:</label>
               <input
                 type="text"
-                placeholder="Filtrar por nombre"
+                placeholder={textos[idioma].filtrarNombre}
                 value={filtroNombre}
                 onChange={(e) => setFiltroNombre(e.target.value)}
               />
             </div>
             <div className="filtro-input">
-              <label>Apellido:</label>
+              <label>{textos[idioma].apellido}:</label>
               <input
                 type="text"
-                placeholder="Filtrar por apellido"
+                placeholder={textos[idioma].filtrarApellido}
                 value={filtroApellido}
                 onChange={(e) => setFiltroApellido(e.target.value)}
               />
@@ -56,10 +85,12 @@ export const VerPacientes = ({ uidUsuario }) => {
               <div key={paciente.id} className="filtro-paciente paciente">
                 <ul>
                   <li>
-                    <strong>Nombre:</strong> <span>{paciente.nombre}</span>
+                    <strong>{textos[idioma].nombre}:</strong>{" "}
+                    <span>{paciente.nombre}</span>
                   </li>
                   <li>
-                    <strong>Apellido:</strong> <span>{paciente.apellido}</span>
+                    <strong>{textos[idioma].apellido}:</strong>{" "}
+                    <span>{paciente.apellido}</span>
                   </li>
                   <li>
                     <strong>DNI:</strong> <span>{paciente.dni}</span>
@@ -67,23 +98,23 @@ export const VerPacientes = ({ uidUsuario }) => {
                 </ul>
                 <div className="acciones-paciente">
                   <button onClick={() => editarPaciente(paciente.id)}>
-                    Editar
+                    {textos[idioma].editar}
                   </button>
                   <button
                     className="boton-borrar"
                     onClick={() => borrarPaciente(paciente.id)}
                   >
-                    Borrar
+                    {textos[idioma].borrar}
                   </button>
                 </div>
               </div>
             ))
           ) : (
-            <p>No se encontraron pacientes.</p>
+            <p>{textos[idioma].noPacientes}</p>
           )}
         </div>
         <NavLink to={`/pacientes`}>
-          <button className="boton-volver">Volver</button>
+          <button className="boton-volver">{textos[idioma].volver}</button>
         </NavLink>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import appFirebase from "../src/credenciales";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -27,6 +27,10 @@ import { VerUsuarios } from "./pages/Administrador/VerUsuarios/VerUsuarios";
 import { Usuario } from "./pages/Usuario/Usuario";
 import { EditarUsuario } from "./pages/Administrador/EditarUsuario/EditarUsuario";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import {
+  IdiomaProvider,
+  IdiomaContext,
+} from "../src/components/IdiomaContext/IdiomaContext";
 import "./App.css";
 
 const auth = getAuth(appFirebase);
@@ -36,6 +40,7 @@ function App() {
   const [usuario, setUsuario] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
+  const { idioma } = useContext(IdiomaContext); // Obtener el idioma del contexto
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (usuarioFirebase) => {
@@ -66,78 +71,82 @@ function App() {
   }, [navigate]);
 
   return (
-    <div className="App">
-      {usuario && <Header correoUsuario={usuario.email} />}
-      {usuario && <Nav correoUsuario={usuario.email} isAdmin={isAdmin} />}
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home uidUsuario={usuario?.uid} />} />
-        <Route path="/pacientes" element={<Pacientes />} />
-        <Route
-          path="/pacientes/registro"
-          element={<Registro uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/verPacientes"
-          element={<VerPacientes uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/verPacientes/editarPaciente/:id"
-          element={<EditarPaciente uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/diagnostico"
-          element={<Diagnostico uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/historialClinico"
-          element={<HistorialClinico uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/historialClinico/historalClinicoPaciente/:id"
-          element={<HistorialClinicoPaciente uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/historialClinico/editarHistorialClinico/:id/:docId"
-          element={<EditarHistorialClinico uidUsuario={usuario?.uid} />}
-        />
-        <Route path="/turnos" element={<Citas />} />
-        <Route
-          path="/turnos/citas/generarCitas"
-          element={<GenerarCitas uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/turnos/citas/verTurnos"
-          element={<VerTurnos uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/turnos/citas/editarTurno/:id"
-          element={<EditarTurno uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/pacientes/diagnostico/diagnosticoPaciente/:id"
-          element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />}
-        />
-        <Route
-          path="/administrador"
-          element={<ProtectedRoute element={Administrador} isAdmin={isAdmin} />}
-        />
-        <Route
-          path="/administrador/registrarUsuario"
-          element={
-            <ProtectedRoute element={RegistrarUsuario} isAdmin={isAdmin} />
-          }
-        />
-        <Route path="/administrador/verUsuarios" element={<VerUsuarios />} />
-        <Route
-          path="/administrador/editarUsuario/:id"
-          element={<EditarUsuario />}
-        />
-        <Route path="/usuario" element={<Usuario />} />
-        <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
-      </Routes>
-      {usuario && <Footer />}
-    </div>
+    <IdiomaProvider>
+      <div className="App">
+        {usuario && <Header correoUsuario={usuario.email} />}
+        {usuario && <Nav correoUsuario={usuario.email} isAdmin={isAdmin} />}
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home uidUsuario={usuario?.uid} />} />
+          <Route path="/pacientes" element={<Pacientes />} />
+          <Route
+            path="/pacientes/registro"
+            element={<Registro uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/verPacientes"
+            element={<VerPacientes uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/verPacientes/editarPaciente/:id"
+            element={<EditarPaciente uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/diagnostico"
+            element={<Diagnostico uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/historialClinico"
+            element={<HistorialClinico uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/historialClinico/historalClinicoPaciente/:id"
+            element={<HistorialClinicoPaciente uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/historialClinico/editarHistorialClinico/:id/:docId"
+            element={<EditarHistorialClinico uidUsuario={usuario?.uid} />}
+          />
+          <Route path="/turnos" element={<Citas />} />
+          <Route
+            path="/turnos/citas/generarCitas"
+            element={<GenerarCitas uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/turnos/citas/verTurnos"
+            element={<VerTurnos uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/turnos/citas/editarTurno/:id"
+            element={<EditarTurno uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/pacientes/diagnostico/diagnosticoPaciente/:id"
+            element={<DiagnosticoPaciente uidUsuario={usuario?.uid} />}
+          />
+          <Route
+            path="/administrador"
+            element={
+              <ProtectedRoute element={Administrador} isAdmin={isAdmin} />
+            }
+          />
+          <Route
+            path="/administrador/registrarUsuario"
+            element={
+              <ProtectedRoute element={RegistrarUsuario} isAdmin={isAdmin} />
+            }
+          />
+          <Route path="/administrador/verUsuarios" element={<VerUsuarios />} />
+          <Route
+            path="/administrador/editarUsuario/:id"
+            element={<EditarUsuario />}
+          />
+          <Route path="/usuario" element={<Usuario />} />
+          <Route path="*" element={<Login />} /> {/* Ruta por defecto */}
+        </Routes>
+        {usuario && <Footer />}
+      </div>
+    </IdiomaProvider>
   );
 }
 

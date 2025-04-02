@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// src/components/Body/Body.jsx
+import React, { useState, useEffect, useContext } from "react";
 import {
   getFirestore,
   collection,
@@ -9,12 +10,41 @@ import {
 } from "firebase/firestore";
 import appFirebase from "../../../src/credenciales";
 import "./Body.css";
+import { IdiomaContext } from "../IdiomaContext/IdiomaContext.jsx";
 
 const db = getFirestore(appFirebase);
 
 export const Body = ({ uidUsuario }) => {
   const [turnosProximos, setTurnosProximos] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Estado para el spinner
+  const { idioma } = useContext(IdiomaContext); // Obtener el idioma del contexto
+
+  const textos = {
+    es: {
+      noticiasTitulo: "Noticias y Recordatorios",
+      noticiasNovedades: "Noticias y novedades:",
+      noticia1: "Ahora se permite editar/eliminar los turnos (Nuevo)",
+      noticia2:
+        "Ahora se permite editar/eliminar el Historial clinico de cada paciente (Nuevo)",
+      noticia3:
+        "Se agrego la opcion de generar un QR para que el paciente pueda escanear y asi registrar el turno en su telefono mobil (opcion de pago) (Nuevo)",
+      recordatorioTurnos: "Recordatorio de turnos:",
+      noConsultas: "No hay consultas programadas para los próximos días.",
+      cambiarIdioma: "Idioma",
+    },
+    en: {
+      noticiasTitulo: "News and Reminders",
+      noticiasNovedades: "News and updates:",
+      noticia1: "Now you can edit/delete appointments (New)",
+      noticia2:
+        "Now you can edit/delete the medical history of each patient (New)",
+      noticia3:
+        "Added the option to generate a QR so that the patient can scan and register the appointment on their mobile phone (paid option) (New)",
+      recordatorioTurnos: "Appointment reminders:",
+      noConsultas: "No appointments scheduled for the next few days.",
+      cambiarIdioma: "Language",
+    },
+  };
 
   const formatearFecha = (fechaISO) => {
     const fecha = new Date(fechaISO);
@@ -78,34 +108,25 @@ export const Body = ({ uidUsuario }) => {
         <div className="padre-editar-historial">
           <div className="contenedor-noticias">
             <div className="padre-titulo titulo">
-              <h1>Noticias y Recordatorios</h1>
+              <h1>{textos[idioma].noticiasTitulo}</h1>
             </div>
             <div className="padre-recordatorios">
-              <h3>Noticias y novedades:</h3>
+              <h3>{textos[idioma].noticiasNovedades}</h3>
               <div className="turnosProximos">
                 <ul>
-                  <li className="noticias">
-                    Ahora se permite editar/eliminar los turnos (Nuevo)
-                  </li>
-                  <li className="noticias">
-                    Ahora se permite editar/eliminar el Historial clinico de
-                    cada paciente (Nuevo)
-                  </li>
-                  <li className="noticias">
-                    Se agrego la opcion de generar un QR para que el paciente
-                    pueda escanear y asi registrar el turno en su telefono mobil
-                    (opcion de pago) (Nuevo)
-                  </li>
+                  <li className="noticias">{textos[idioma].noticia1}</li>
+                  <li className="noticias">{textos[idioma].noticia2}</li>
+                  <li className="noticias">{textos[idioma].noticia3}</li>
                 </ul>
               </div>
-              <h3>Recordatorio de turnos:</h3>
+              <h3>{textos[idioma].recordatorioTurnos}</h3>
               {isLoading ? (
                 <div className="spinner"></div> // Mostrar spinner mientras se cargan los turnos
               ) : turnosProximos.length > 0 ? (
                 turnosProximos.map((turno, index) => (
-                  <div className="turnosProximos">
+                  <div className="turnosProximos" key={index}>
                     <ul>
-                      <li key={index}>
+                      <li>
                         Consulta con{" "}
                         <span>
                           {turno.nombre} {turno.apellido}
@@ -117,7 +138,7 @@ export const Body = ({ uidUsuario }) => {
                   </div>
                 ))
               ) : (
-                <p>No hay consultas programadas para los próximos días.</p>
+                <p>{textos[idioma].noConsultas}</p>
               )}
             </div>
           </div>
